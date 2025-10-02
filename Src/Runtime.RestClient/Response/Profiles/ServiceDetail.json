@@ -1,0 +1,27 @@
+{
+  "result": {
+    "title": "Edit Unit Details",
+    "requiredDocs": [
+      "Certificate to Whom It May Concern",
+      "Proof of Membership",
+      "Salary certificate",
+      "To Whom It May Concern Letter from the Ministry of Community Development"
+    ],
+    "contractIssueFee": 500,
+    "insuranceFee": 3000,
+    "rentalValueForSeasonalRanches": 10,
+    "rentalValueFullyServiced": 25,
+    "rentalValueNotAllServices": 15,
+    "steps": [
+      "Log in using UAE PASS",
+      "Submit the application and the required documents",
+      "Pay the fees",
+      "Obtain ranch tenancy contract"
+    ]
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

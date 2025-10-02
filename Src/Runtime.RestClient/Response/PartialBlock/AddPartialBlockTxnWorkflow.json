@@ -1,0 +1,53 @@
+{
+  "result": [
+    {
+      "blockChangeType": null,
+      "businessEntBlkTxnWrkflwId": null,
+      "businessEntityBlockId": null,
+      "businessEntityBlockTxnId": 2118,
+      "remarks": "",
+      "workflowId": 1214,
+      "workflowNameA": null,
+      "workflowNameE": null,
+      "urlArgs": null
+    },
+    {
+      "blockChangeType": null,
+      "businessEntBlkTxnWrkflwId": null,
+      "businessEntityBlockId": null,
+      "businessEntityBlockTxnId": 2118,
+      "remarks": "",
+      "workflowId": 1247,
+      "workflowNameA": null,
+      "workflowNameE": null,
+      "urlArgs": null
+    },
+    {
+      "blockChangeType": null,
+      "businessEntBlkTxnWrkflwId": null,
+      "businessEntityBlockId": null,
+      "businessEntityBlockTxnId": 2118,
+      "remarks": "",
+      "workflowId": 1212,
+      "workflowNameA": null,
+      "workflowNameE": null,
+      "urlArgs": null
+    },
+    {
+      "blockChangeType": null,
+      "businessEntBlkTxnWrkflwId": null,
+      "businessEntityBlockId": null,
+      "businessEntityBlockTxnId": 2118,
+      "remarks": "",
+      "workflowId": 1032,
+      "workflowNameA": null,
+      "workflowNameE": null,
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

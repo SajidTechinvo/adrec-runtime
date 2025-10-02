@@ -1,0 +1,20 @@
+{
+  "result": {
+    "isOverridePayment": true,
+    "isPaid": false,
+    "status": 0,
+    "paidByName": "Override",
+    "amountPaid": 600.0,
+    "paymentType": "Override",
+    "checkDate": null,
+    "paymentNumber": null,
+    "comments": null,
+    "receiptNumber": "202500207155",
+    "receiptDate": "2025-05-02T00:00:00Z"
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

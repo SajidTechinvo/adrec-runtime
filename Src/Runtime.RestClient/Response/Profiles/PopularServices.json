@@ -1,0 +1,70 @@
+{
+  "result": [
+
+    {
+      "id": 1,
+      "name": "Edit Unit Details",
+      "description": "Find and edit the basic details of any unit",
+      "isFavorite": false
+    },
+    {
+      "id": 2,
+      "name": "Real Estate Transactions & Approvals",
+      "description": "Facilitates property transactions, sales, and title transfers.",
+      "isFavorite": false
+    },
+    {
+      "id": 3,
+      "name": "Edit business details",
+      "description": "Allows customer to make payment for DMT services",
+      "isFavorite": false
+    },
+    {
+      "id": 4,
+      "name": "Environmental Assessments",
+      "description": "Assesses potential environmental impacts of proposed projects.",
+      "isFavorite": false
+    },
+    {
+      "id": 5,
+      "name": "Edit Plot Details",
+      "description": "Find and edit the basic details of any plot",
+      "isFavorite": true
+    },
+    {
+      "id": 6,
+      "name": "Edit Unit Details",
+      "description": "Find and edit the basic details of any unit",
+      "isFavorite": false
+    },
+    {
+      "id": 7,
+      "name": "Real Estate Transactions & Approvals",
+      "description": "Facilitates property transactions, sales, and title transfers.",
+      "isFavorite": false
+    },
+    {
+      "id": 8,
+      "name": "Edit business details",
+      "description": "Allows customer to make payment for DMT services",
+      "isFavorite": false
+    },
+    {
+      "id": 9,
+      "name": "Environmental Assessments",
+      "description": "Assesses potential environmental impacts of proposed projects.",
+      "isFavorite": false
+    },
+    {
+      "id": 10,
+      "name": "Edit Plot Details",
+      "description": "Find and edit the basic details of any plot",
+      "isFavorite": true
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

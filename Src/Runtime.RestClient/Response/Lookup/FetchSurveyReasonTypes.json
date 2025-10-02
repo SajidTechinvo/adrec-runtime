@@ -1,0 +1,23 @@
+{
+  "result": [
+    {
+      "elmsSurveyReasonTypeConst": "Construction",
+      "surveyReasonType": 2,
+      "surveyReasonTypeNameA": "بناء",
+      "surveyReasonTypeNameE": "Construction",
+      "urlArgs": null
+    },
+    {
+      "elmsSurveyReasonTypeConst": "Inspection",
+      "surveyReasonType": 1,
+      "surveyReasonTypeNameA": "تحديد الزوايا",
+      "surveyReasonTypeNameE": "Inspection",
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

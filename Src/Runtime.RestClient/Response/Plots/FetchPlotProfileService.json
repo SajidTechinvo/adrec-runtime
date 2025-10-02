@@ -1,0 +1,117 @@
+{
+  "result": [
+    {
+      "workflowTypeConst": "LandAndRealEstateWorkflows",
+      "workflowConst": "ElmsTenancyAgreementRegistrationIndustrialTempPlots",
+      "workflowId": 1442,
+      "workflowTypeId": 1039,
+      "isMostlyUsedService": false,
+      "permissionId": 4865,
+      "permissionConst": "ElmsTenancyAgreementRegistrationIndustrialTempPlots.Registration.Permission",
+      "isOwnerElmsAudited": false,
+      "workflowGroupId": 1016,
+      "urlArgs": "hOIEEaieCjZow3H2%2Fsrj9PyGWrb5DH5f"
+    },
+    {
+      "workflowTypeConst": "LandAndRealEstateWorkflows",
+      "workflowConst": "ElmsRegisterMusatahaContract",
+      "workflowId": 1452,
+      "workflowTypeId": 1039,
+      "isMostlyUsedService": false,
+      "permissionId": 4945,
+      "permissionConst": "ElmsRegisterMusatahaContract.Registration.Permission",
+      "isOwnerElmsAudited": false,
+      "workflowGroupId": 1016,
+      "urlArgs": "lu%2BXdbZClnvRPd8cAYd87PyGWrb5DH5f"
+    },
+    {
+      "workflowTypeConst": "LandAndRealEstateWorkflows",
+      "workflowConst": "ElmsIncreasePlotArea",
+      "workflowId": 1454,
+      "workflowTypeId": 1039,
+      "isMostlyUsedService": false,
+      "permissionId": 4980,
+      "permissionConst": "ElmsIncreasePlotArea.Registration.Permission",
+      "isOwnerElmsAudited": false,
+      "workflowGroupId": 1016,
+      "urlArgs": "2iH5H6Neq%2FHAeXN7VJF7HvyGWrb5DH5f"
+    },
+    {
+      "workflowTypeConst": "LandAndRealEstateWorkflows",
+      "workflowConst": "ElmsPlotDemarcation",
+      "workflowId": 1456,
+      "workflowTypeId": 1039,
+      "isMostlyUsedService": false,
+      "permissionId": 5207,
+      "permissionConst": "ElmsPlotDemarcation.Registration.Permission",
+      "isOwnerElmsAudited": false,
+      "workflowGroupId": 1016,
+      "urlArgs": "nanP8RtC0BW9Nf3PhhSEffyGWrb5DH5f"
+    },
+    {
+      "workflowTypeConst": "LandAndRealEstateWorkflows",
+      "workflowConst": "ElmsEditPlotDetails",
+      "workflowId": 1457,
+      "workflowTypeId": 1039,
+      "isMostlyUsedService": false,
+      "permissionId": 5329,
+      "permissionConst": "ElmsEditPlotDetails.Registration.Permission",
+      "isOwnerElmsAudited": false,
+      "workflowGroupId": 1016,
+      "urlArgs": "JJXRf3GIaLIQwdzxSBhv5vyGWrb5DH5f"
+    },
+    {
+      "workflowTypeConst": "LandAndRealEstateWorkflows",
+      "workflowConst": "ElmsMergePlots",
+      "workflowId": 1464,
+      "workflowTypeId": 1039,
+      "isMostlyUsedService": false,
+      "permissionId": 5424,
+      "permissionConst": "ElmsMergePlots.Registration.Permission",
+      "isOwnerElmsAudited": false,
+      "workflowGroupId": 1016,
+      "urlArgs": "QFjsB%2FmhkfiSHVHrYEJmzPyGWrb5DH5f"
+    },
+    {
+      "workflowTypeConst": "LandAndRealEstateWorkflows",
+      "workflowConst": "ElmsCreatePlotBlock",
+      "workflowId": 1466,
+      "workflowTypeId": 1039,
+      "isMostlyUsedService": false,
+      "permissionId": 5450,
+      "permissionConst": "ElmsCreatePlotBlock.Registration.Permission",
+      "isOwnerElmsAudited": false,
+      "workflowGroupId": 1016,
+      "urlArgs": "WjGrYQoZxJ%2FEjF6ADHXo8fyGWrb5DH5f"
+    },
+    {
+      "workflowTypeConst": "LandAndRealEstateWorkflows",
+      "workflowConst": "ElmsManagePlotComments",
+      "workflowId": 1471,
+      "workflowTypeId": 1039,
+      "isMostlyUsedService": false,
+      "permissionId": 5515,
+      "permissionConst": "ElmsManagePlotComments.Registration.Permission",
+      "isOwnerElmsAudited": false,
+      "workflowGroupId": 1016,
+      "urlArgs": "Jj0TEgSzcnOCzg6rcU3LLPyGWrb5DH5f"
+    },
+    {
+      "workflowTypeConst": "LandAndRealEstateWorkflows",
+      "workflowConst": "ElmsDonateProperty",
+      "workflowId": 1475,
+      "workflowTypeId": 1039,
+      "isMostlyUsedService": false,
+      "permissionId": 5569,
+      "permissionConst": "ElmsDonateProperty.Registration.Permission",
+      "isOwnerElmsAudited": false,
+      "workflowGroupId": 1016,
+      "urlArgs": "ratVZ5UrsGpy2xV3wV8iwvyGWrb5DH5f"
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

@@ -1,0 +1,445 @@
+{
+  "result": [
+    {
+      "application": {
+        "applicationId": 2785058,
+        "applicationNumber": "202500285504",
+        "applicationCreatedDate": "7/7/2025",
+        "applicationReferenceNumber": null,
+        "urlArgs": "Kck1pNS%2BZJB9rE%2Fe8zUFzO9%2B7sfHkuKY"
+      },
+      "municipalityNameE": "Abu Dhabi City Municipality",
+      "municipalityNameA": "بلدية مدينة أبوظبي",
+      "requestTypeE": null,
+      "requestTypeA": null,
+      "ranchTypeE": null,
+      "ranchTypeA": null,
+      "daysRemaining": null,
+      "highestPriorityOwnerId": null,
+      "plot": null,
+      "ownersList": [
+        {
+          "ownerId": "122011",
+          "ownerNameE": "ALI ABDULLA SALEH ALI ALHAMMADI",
+          "ownerNameA": "على عبدالله صالح على الحمادى",
+          "familyNameA": "",
+          "familyNameE": "",
+          "nationalId": "784197984140901",
+          "moiNumber": "79262",
+          "archiveNumber": null,
+          "nationalityE": null,
+          "nationalityA": null,
+          "specialNationality": null,
+          "cityE": "Abu Dhabi",
+          "cityA": "ابوظبى",
+          "propertyCard": "",
+          "documents": null,
+          "urlArgs": "4fSy8yI017%2F9UoqxkU3vpg%3D%3D"
+        }
+      ],
+      "steps": [
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Assignment",
+          "status": 2,
+          "actionDate": "",
+          "actionUser": null,
+          "actionUserRole": null
+        },
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Registration",
+          "status": 1,
+          "actionDate": "7/8/2025",
+          "actionUser": {
+            "userNameE": "ADM Back Office Full Admin",
+            "userNameA": "ADM المكتب الخلفي المشرف الكامل",
+            "userId": "1001",
+            "userEmail": "Admin@this.me",
+            "userPhone": "111111111111122",
+            "userGender": ""
+          },
+          "actionUserRole": null
+        }
+      ]
+    },
+    {
+      "application": {
+        "applicationId": 2786262,
+        "applicationNumber": "202500286510",
+        "applicationCreatedDate": "7/8/2025",
+        "applicationReferenceNumber": null,
+        "urlArgs": "Kck1pNS%2BZJCzMIf8Iy73xhVPeA8x3ewU"
+      },
+      "municipalityNameE": "Abu Dhabi City Municipality",
+      "municipalityNameA": "بلدية مدينة أبوظبي",
+      "requestTypeE": null,
+      "requestTypeA": null,
+      "ranchTypeE": null,
+      "ranchTypeA": null,
+      "daysRemaining": null,
+      "highestPriorityOwnerId": null,
+      "plot": null,
+      "ownersList": [
+        {
+          "ownerId": "250248",
+          "ownerNameE": "Alexander Thomas",
+          "ownerNameA": "اليكساندر توماس",
+          "familyNameA": "",
+          "familyNameE": "",
+          "nationalId": "784199138057998",
+          "moiNumber": "76995549",
+          "archiveNumber": null,
+          "nationalityE": null,
+          "nationalityA": null,
+          "specialNationality": null,
+          "cityE": "",
+          "cityA": "",
+          "propertyCard": "",
+          "documents": null,
+          "urlArgs": "rRMPlkkEpYVE0WyDWJbOjQ%3D%3D"
+        }
+      ],
+      "steps": [
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Assignment",
+          "status": 2,
+          "actionDate": "",
+          "actionUser": null,
+          "actionUserRole": null
+        },
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Registration",
+          "status": 1,
+          "actionDate": "7/8/2025",
+          "actionUser": {
+            "userNameE": "ADM Back Office Full Admin",
+            "userNameA": "ADM المكتب الخلفي المشرف الكامل",
+            "userId": "1001",
+            "userEmail": "Admin@this.me",
+            "userPhone": "111111111111122",
+            "userGender": ""
+          },
+          "actionUserRole": null
+        }
+      ]
+    },
+    {
+      "application": {
+        "applicationId": 2785258,
+        "applicationNumber": "202500285704",
+        "applicationCreatedDate": "7/7/2025",
+        "applicationReferenceNumber": null,
+        "urlArgs": "Kck1pNS%2BZJBzJKS%2FGCMNlknThm4qJWPA"
+      },
+      "municipalityNameE": "Abu Dhabi City Municipality",
+      "municipalityNameA": "بلدية مدينة أبوظبي",
+      "requestTypeE": null,
+      "requestTypeA": null,
+      "ranchTypeE": null,
+      "ranchTypeA": null,
+      "daysRemaining": null,
+      "highestPriorityOwnerId": null,
+      "plot": null,
+      "ownersList": [
+        {
+          "ownerId": "250248",
+          "ownerNameE": "Alexander Thomas",
+          "ownerNameA": "اليكساندر توماس",
+          "familyNameA": "",
+          "familyNameE": "",
+          "nationalId": "784199138057998",
+          "moiNumber": "76995549",
+          "archiveNumber": null,
+          "nationalityE": null,
+          "nationalityA": null,
+          "specialNationality": null,
+          "cityE": "",
+          "cityA": "",
+          "propertyCard": "",
+          "documents": null,
+          "urlArgs": "rRMPlkkEpYVE0WyDWJbOjQ%3D%3D"
+        }
+      ],
+      "steps": [
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Assignment",
+          "status": 2,
+          "actionDate": "",
+          "actionUser": null,
+          "actionUserRole": null
+        },
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Registration",
+          "status": 1,
+          "actionDate": "7/7/2025",
+          "actionUser": {
+            "userNameE": "ADM Back Office Full Admin",
+            "userNameA": "ADM المكتب الخلفي المشرف الكامل",
+            "userId": "1001",
+            "userEmail": "Admin@this.me",
+            "userPhone": "111111111111122",
+            "userGender": ""
+          },
+          "actionUserRole": null
+        }
+      ]
+    },
+    {
+      "application": {
+        "applicationId": 2763642,
+        "applicationNumber": "202500268102",
+        "applicationCreatedDate": "6/19/2025",
+        "applicationReferenceNumber": null,
+        "urlArgs": "Kck1pNS%2BZJC0GzgCrYyq7J1fk%2F%2FUOr7v"
+      },
+      "municipalityNameE": "Abu Dhabi City Municipality",
+      "municipalityNameA": "بلدية مدينة أبوظبي",
+      "requestTypeE": null,
+      "requestTypeA": null,
+      "ranchTypeE": null,
+      "ranchTypeA": null,
+      "daysRemaining": null,
+      "highestPriorityOwnerId": null,
+      "plot": {
+        "address": "0-0-000-RCH213",
+        "allocationTypeE": "",
+        "allocationTypeA": "",
+        "area": "8100",
+        "communityNameE": "Qasr Al Wathbah South",
+        "communityNameA": "قصر الوثبة جنوب",
+        "constructionStatus": "0",
+        "districtNameE": "Al Wathbah",
+        "districtNameA": "الوثبة",
+        "expatOwnershipPercentage": "",
+        "municipalityNameE": "Abu Dhabi City Municipality",
+        "municipalityNameA": "بلدية مدينة أبوظبي",
+        "investmentAreaNameE": "",
+        "investmentAreaNameA": "",
+        "landUseE": "tmpHorsesRanch",
+        "landUseA": "عزبة خيول مؤقتة",
+        "plotId": "518204",
+        "plotNumber": "RCH213",
+        "plotFileNumber": null,
+        "urlArgs": "GPpP3GQNg6oFU3MUvyHpZQ%3D%3D",
+        "owners": [
+          {
+            "plotOwner": {
+              "ownerId": "250287",
+              "ownerNameE": "ABDAL-RAHEEM ISMAIL HORAIZ SALMEEN GHALEEZA",
+              "ownerNameA": "عبدالرحيم اسماعيل حريز سالمين غليظه",
+              "familyNameA": "",
+              "familyNameE": "",
+              "nationalId": "784199298168172",
+              "moiNumber": "10846352",
+              "archiveNumber": "",
+              "nationalityE": "United Arab Emirates",
+              "nationalityA": "الامارات",
+              "specialNationality": "No",
+              "cityE": "",
+              "cityA": "",
+              "propertyCard": "",
+              "documents": null,
+              "urlArgs": "rRMPlkkEpYX6EsvxFbZBAA%3D%3D"
+            },
+            "rightHoldType": [
+              {
+                "rightsHoldTypeNameA": "إنتفاع",
+                "rightsHoldTypeNameE": "Usufruct",
+                "acquisitionTypeA": "",
+                "acquisitionTypeE": "",
+                "share": "0"
+              }
+            ]
+          },
+          {
+            "plotOwner": {
+              "ownerId": "233126",
+              "ownerNameE": "Abu Dhabi Government",
+              "ownerNameA": "حكومة أبوظبي",
+              "familyNameA": "",
+              "familyNameE": "",
+              "nationalId": "",
+              "moiNumber": "",
+              "archiveNumber": null,
+              "nationalityE": null,
+              "nationalityA": null,
+              "specialNationality": null,
+              "cityE": "",
+              "cityA": "",
+              "propertyCard": "",
+              "documents": null,
+              "urlArgs": "mQFgz9Ci%2BKg%2FAt%2BwhmY8RQ%3D%3D"
+            },
+            "rightHoldType": [
+              {
+                "rightsHoldTypeNameA": "ملكية",
+                "rightsHoldTypeNameE": "Ownership",
+                "acquisitionTypeA": "",
+                "acquisitionTypeE": "",
+                "share": "0"
+              }
+            ]
+          }
+        ]
+      },
+      "ownersList": [
+        {
+          "ownerId": "130384",
+          "ownerNameE": "Dewan Crown Prince office",
+          "ownerNameA": "ولي ديوان العهد مكتب ولي ",
+          "familyNameA": "",
+          "familyNameE": "",
+          "nationalId": "784196913147573",
+          "moiNumber": "",
+          "archiveNumber": null,
+          "nationalityE": null,
+          "nationalityA": null,
+          "specialNationality": null,
+          "cityE": "",
+          "cityA": "",
+          "propertyCard": "",
+          "documents": null,
+          "urlArgs": "30IcWetnhwfKZYByYEXqqQ%3D%3D"
+        },
+        {
+          "ownerId": "257603",
+          "ownerNameE": "ABDAL-QADER GAMAL DAWOOD HADEF MASHOOT",
+          "ownerNameA": "عبدالقادر جمال داود هادف مشوط",
+          "familyNameA": "",
+          "familyNameE": "",
+          "nationalId": "784192520609410",
+          "moiNumber": "137994",
+          "archiveNumber": null,
+          "nationalityE": null,
+          "nationalityA": null,
+          "specialNationality": null,
+          "cityE": "Al Ain",
+          "cityA": "العين",
+          "propertyCard": "",
+          "documents": null,
+          "urlArgs": "rRMPlkkEpYX%2FiGCWyJ5EgA%3D%3D"
+        }
+      ],
+      "steps": [
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Approval",
+          "status": 2,
+          "actionDate": "",
+          "actionUser": null,
+          "actionUserRole": null
+        },
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Assignment",
+          "status": 1,
+          "actionDate": "7/7/2025",
+          "actionUser": {
+            "userNameE": "ADM Back Office Full Admin",
+            "userNameA": "ADM المكتب الخلفي المشرف الكامل",
+            "userId": "1001",
+            "userEmail": "Admin@this.me",
+            "userPhone": "111111111111122",
+            "userGender": ""
+          },
+          "actionUserRole": null
+        },
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Registration",
+          "status": 1,
+          "actionDate": "6/19/2025",
+          "actionUser": {
+            "userNameE": "ADMRA04",
+            "userNameA": "ADMRA04",
+            "userId": "28875",
+            "userEmail": "a@a.com",
+            "userPhone": "0509000111",
+            "userGender": ""
+          },
+          "actionUserRole": null
+        }
+      ]
+    },
+    {
+      "application": {
+        "applicationId": 2777682,
+        "applicationNumber": "202500279185",
+        "applicationCreatedDate": "7/1/2025",
+        "applicationReferenceNumber": null,
+        "urlArgs": "tX5v4sVCpUh%2FEOMSkM3Yxgdg%2FhK1zqgI"
+      },
+      "municipalityNameE": "Abu Dhabi City Municipality",
+      "municipalityNameA": "بلدية مدينة أبوظبي",
+      "requestTypeE": null,
+      "requestTypeA": null,
+      "ranchTypeE": null,
+      "ranchTypeA": null,
+      "daysRemaining": null,
+      "highestPriorityOwnerId": null,
+      "plot": null,
+      "ownersList": [
+        {
+          "ownerId": "250248",
+          "ownerNameE": "Alexander Thomas",
+          "ownerNameA": "اليكساندر توماس",
+          "familyNameA": "",
+          "familyNameE": "",
+          "nationalId": "784199138057998",
+          "moiNumber": "76995549",
+          "archiveNumber": null,
+          "nationalityE": null,
+          "nationalityA": null,
+          "specialNationality": null,
+          "cityE": "",
+          "cityA": "",
+          "propertyCard": "",
+          "documents": null,
+          "urlArgs": "rRMPlkkEpYVE0WyDWJbOjQ%3D%3D"
+        },
+        {
+          "ownerId": "257603",
+          "ownerNameE": "ABDAL-QADER GAMAL DAWOOD HADEF MASHOOT",
+          "ownerNameA": "عبدالقادر جمال داود هادف مشوط",
+          "familyNameA": "",
+          "familyNameE": "",
+          "nationalId": "784192520609410",
+          "moiNumber": "137994",
+          "archiveNumber": null,
+          "nationalityE": null,
+          "nationalityA": null,
+          "specialNationality": null,
+          "cityE": "Al Ain",
+          "cityA": "العين",
+          "propertyCard": "",
+          "documents": null,
+          "urlArgs": "rRMPlkkEpYX%2FiGCWyJ5EgA%3D%3D"
+        }
+      ],
+      "steps": [
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Assignment",
+          "status": 2,
+          "actionDate": "",
+          "actionUser": null,
+          "actionUserRole": null
+        },
+        {
+          "stepConst": "ElmsAllotmentOfRanchPlots.Registration",
+          "status": 1,
+          "actionDate": "7/1/2025",
+          "actionUser": {
+            "userNameE": "ADMRA04",
+            "userNameA": "ADMRA04",
+            "userId": "28875",
+            "userEmail": "a@a.com",
+            "userPhone": "0509000111",
+            "userGender": ""
+          },
+          "actionUserRole": null
+        }
+      ]
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

@@ -1,0 +1,35 @@
+{
+  "result": {
+    "zone": "Al Hamra",
+    "sector": "Al Hamra",
+    "plotNumber": "P1200",
+    "road": "",
+    "area": 40000.1541,
+    "dimensions": "",
+    "municipalityId": 1002,
+    "municipality": {
+      "adgeId": "778017000",
+      "applicationFlags": null,
+      "customerId": 1004,
+      "evaluatorTradeLicenseNumber": "CN-12480",
+      "genericGcsCodeId": "33",
+      "inboxId": 1002,
+      "isDisableEmailNotification": false,
+      "mailBoxTradeLicenseNumber": "CN-1068890",
+      "municipalityConst": "AlDhafraRegion",
+      "municipalityFlagIndex": 4,
+      "municipalityId": 1002,
+      "municipalityNameA": "بلدية منطقة الظفرة",
+      "municipalityNameE": "Al Dhafra Region Municipality",
+      "profLicenseDepEmail": "LRE@drm.gov.ae;ghaniya.almazrouie@drm.gov.ae \n",
+      "isAreaNeeded": false,
+      "urlArgs": null
+    },
+    "plotId": 3231
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

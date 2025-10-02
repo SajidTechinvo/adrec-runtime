@@ -1,0 +1,53 @@
+{
+  "result": [
+    {
+      "title": "Request Ranch Allocation",
+      "titleAr": "",
+      "status": "Payment Required",
+      "statusAr": "",
+      "reference": "102839239829",
+      "daysRemaining": 3,
+      "progress": [ 1, 1, 1, 1, 1 ],
+      "action": "Ranch Allocation",
+      "actionAr": ""
+    },
+    {
+      "title": "Edit Plot Details",
+      "titleAr": "",
+      "status": "Plot Required",
+      "statusAr": "",
+      "reference": "023829323",
+      "daysRemaining": 5,
+      "progress": [ 1, 1, 0, 0, 0 ],
+      "action": "Edit Plot Details",
+      "actionAr": ""
+    },
+    {
+      "title": "Edit Plot Details",
+      "titleAr": "",
+      "status": "Approval Required",
+      "statusAr": "",
+      "reference": "0293829233",
+      "daysRemaining": 6,
+      "progress": [ 1, 1, 1, -1, -1 ],
+      "action": "Edit Plot Details",
+      "actionAr": ""
+    },
+    {
+      "title": "Withdraw Land",
+      "titleAr": "",
+      "status": "Approval Pending",
+      "statusAr": "",
+      "reference": "384729302",
+      "daysRemaining": 2,
+      "progress": [ 1, 0, 0, 0, 0 ],
+      "action": "Withdraw Land",
+      "actionAr": ""
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

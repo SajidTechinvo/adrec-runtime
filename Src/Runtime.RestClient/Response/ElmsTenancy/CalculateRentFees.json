@@ -1,0 +1,15 @@
+{
+  "result": {
+    "feeAmount": 553.80,
+    "feeFormat": "553.80",
+    "amountInWords": "(Five Hundred Fifty Four Dirhams Only.)",
+    "paidAmountInWords": "",
+    "rentFeesPerSqMeterUnit": 15.0,
+    "urlArgs": null
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

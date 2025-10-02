@@ -1,0 +1,45 @@
+{
+  "result": [
+    {
+      "commentTypeId": 1000,
+      "nameA": "Note",
+      "nameE": "Note",
+      "urlArgs": null
+    },
+    {
+      "commentTypeId": 1001,
+      "nameA": "General",
+      "nameE": "General",
+      "urlArgs": null
+    },
+    {
+      "commentTypeId": 1002,
+      "nameA": "Message",
+      "nameE": "Message",
+      "urlArgs": null
+    },
+    {
+      "commentTypeId": 1003,
+      "nameA": "Warning",
+      "nameE": "Warning",
+      "urlArgs": null
+    },
+    {
+      "commentTypeId": 1004,
+      "nameA": "Historic Homes",
+      "nameE": "Historic Homes",
+      "urlArgs": null
+    },
+    {
+      "commentTypeId": 1005,
+      "nameA": "Official Request",
+      "nameE": "Official Request",
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

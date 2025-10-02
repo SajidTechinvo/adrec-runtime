@@ -1,0 +1,21 @@
+{
+  "result": {
+    "name": "Farzana Shah",
+    "desigantion": "Service Agent",
+    "tags": [
+      "Land Allocation",
+      "Plot Subdivision & Merging",
+      "Land Exchange",
+      "Land Leasing"
+    ],
+    "image": "http://38.242.224.162/adrec/api/image/Profile Farzana.png/view",
+    "open_applications": 12,
+    "delays": 4,
+    "completed": 123
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

@@ -1,0 +1,42 @@
+{
+  "result": {
+    "result": {
+      "wfiDocumentAttachmentId": 1021770,
+      "wfiDocumentId": 0,
+      "documentId": 216364,
+      "attachmentTitle": "ClearanceCertificate",
+      "attachmentDate": "2025-08-07T15:15:54",
+      "uploadByUserId": 0,
+      "uploadByCustomerNameA": "ADM المكتب الخلفي المشرف الكامل",
+      "uploadByCustomerNameE": "ADM Back Office Full Admin",
+      "downloadUrl": "PdzuQ98uSGGYxyOmkFkVWlcALXL3qkNkl5%2FBh0fWJQh7VuFHI5rLEfyGWrb5DH5f",
+      "deleteUrl": null,
+      "isVerified": false,
+      "isStampNeeded": false,
+      "workflowStatusId": null,
+      "locationAddressId": null,
+      "insInstanceId": 0,
+      "insInstanceCheckItemId": 0,
+      "documentReferenceNumber": null,
+      "documentIssueDate": null,
+      "documentExpireDate": null,
+      "contractStatusA": null,
+      "contractStatusE": null,
+      "fileSize": 0,
+      "locationCoordinate": null,
+      "filePath": null,
+      "documentConst": null,
+      "urlArgs": null
+    },
+    "targetUrl": null,
+    "unAuthorizedRequest": false,
+    "__app": true,
+    "success": true,
+    "error": null
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

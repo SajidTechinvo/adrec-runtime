@@ -1,0 +1,100 @@
+{
+  "result": [
+    {
+      "workflowStepTypeConst": "Registration",
+      "workflowStepTypeId": 1000,
+      "workflowStepTypeNameA": "تسجيل",
+      "workflowStepTypeNameE": "Registration",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "UploadDocuments",
+      "workflowStepTypeId": 1001,
+      "workflowStepTypeNameA": "تحميل الوثائق",
+      "workflowStepTypeNameE": "Upload Documents",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "Payment",
+      "workflowStepTypeId": 1002,
+      "workflowStepTypeNameA": "الدفع",
+      "workflowStepTypeNameE": "Payment",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "Feedback",
+      "workflowStepTypeId": 1003,
+      "workflowStepTypeNameA": "طلب إفادة",
+      "workflowStepTypeNameE": "Feedback",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "Audit",
+      "workflowStepTypeId": 1004,
+      "workflowStepTypeNameA": "تدقيق",
+      "workflowStepTypeNameE": "Audit",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "Apporve",
+      "workflowStepTypeId": 1005,
+      "workflowStepTypeNameA": "إعتماد",
+      "workflowStepTypeNameE": "Apporve",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "End",
+      "workflowStepTypeId": 1006,
+      "workflowStepTypeNameA": "إنهاء",
+      "workflowStepTypeNameE": "End",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "Waiting",
+      "workflowStepTypeId": 1010,
+      "workflowStepTypeNameA": "انتظار",
+      "workflowStepTypeNameE": "Waiting",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "Apporve.FirstParty",
+      "workflowStepTypeId": 1008,
+      "workflowStepTypeNameA": "إعتماد الطرف الأول",
+      "workflowStepTypeNameE": "First Party Apporval",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "Apporve.SecondParty",
+      "workflowStepTypeId": 1009,
+      "workflowStepTypeNameA": "إعتماد الطرف الثاني",
+      "workflowStepTypeNameE": "Second Party Apporval",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "test",
+      "workflowStepTypeId": 1011,
+      "workflowStepTypeNameA": "فثسف 12",
+      "workflowStepTypeNameE": "test",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "Reject",
+      "workflowStepTypeId": 1012,
+      "workflowStepTypeNameA": "رفض",
+      "workflowStepTypeNameE": "Reject",
+      "urlArgs": null
+    },
+    {
+      "workflowStepTypeConst": "Assign",
+      "workflowStepTypeId": 1007,
+      "workflowStepTypeNameA": "تعيين",
+      "workflowStepTypeNameE": "Assign",
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

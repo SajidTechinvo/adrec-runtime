@@ -1,0 +1,45 @@
+{
+  "result": [
+    {
+      "adpCode": "",
+      "lookupDetailCode": "",
+      "lookupDetailConst": "SquareMeter",
+      "lookupDetailId": 728052,
+      "lookupDetailIndex": 1,
+      "lookupDetailNameA": "متر مربع",
+      "lookupDetailNameE": "Square Meters",
+      "lookupDetailOrder": 1,
+      "lookupMasterId": 1585,
+      "municipalityId": null,
+      "parentLookupDetailId": null,
+      "tawCode": null,
+      "sourceConst": null,
+      "sourceA": null,
+      "sourceE": null,
+      "urlArgs": null
+    },
+    {
+      "adpCode": "",
+      "lookupDetailCode": "",
+      "lookupDetailConst": "SquareFeet",
+      "lookupDetailId": 728053,
+      "lookupDetailIndex": 2,
+      "lookupDetailNameA": "قدم مربعة",
+      "lookupDetailNameE": "Square Feet",
+      "lookupDetailOrder": 2,
+      "lookupMasterId": 1585,
+      "municipalityId": null,
+      "parentLookupDetailId": null,
+      "tawCode": null,
+      "sourceConst": null,
+      "sourceA": null,
+      "sourceE": null,
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

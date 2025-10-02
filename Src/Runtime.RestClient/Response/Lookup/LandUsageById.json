@@ -1,0 +1,26 @@
+{
+  "result": {
+    "buildingPercent": 100.0,
+    "businessFlags": null,
+    "colorCode": "FFFFFF",
+    "landuseConst": "IndustrialLandType",
+    "landuseId": 1002,
+    "landuseNameA": "صناعي",
+    "landuseNameE": "Industrial",
+    "lucCode": "",
+    "mepsIdentifier": "",
+    "migNote": 1005.0,
+    "migNoteL": "",
+    "migNoteLm": "",
+    "municipalityId": 1000,
+    "parentLanduseId": null,
+    "joinedLandUseA": null,
+    "joinedLandUseE": null,
+    "urlArgs": null
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

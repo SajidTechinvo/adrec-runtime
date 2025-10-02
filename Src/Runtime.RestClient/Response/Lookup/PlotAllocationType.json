@@ -1,0 +1,105 @@
+{
+  "result": [
+    {
+      "elmsPlotAllocationTypeConst": "PrivateLandType",
+      "plotAllocationTypeId": 1000,
+      "plotAllocationTypeNameA": "خاص",
+      "plotAllocationTypeNameE": "Private",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "ResidentialLandType",
+      "plotAllocationTypeId": 1001,
+      "plotAllocationTypeNameA": "سكني",
+      "plotAllocationTypeNameE": "Residential",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "TemporaryLandType",
+      "plotAllocationTypeId": 1002,
+      "plotAllocationTypeNameA": "مؤقت",
+      "plotAllocationTypeNameE": "Temporary",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "CommercialLandType",
+      "plotAllocationTypeId": 1003,
+      "plotAllocationTypeNameA": "تجاري",
+      "plotAllocationTypeNameE": "Commercial",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "AgriculturalLandType",
+      "plotAllocationTypeId": 1004,
+      "plotAllocationTypeNameA": "زراعي",
+      "plotAllocationTypeNameE": "Agricultural",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "IndustrialLandType",
+      "plotAllocationTypeId": 1005,
+      "plotAllocationTypeNameA": "صناعي",
+      "plotAllocationTypeNameE": "Industrial",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "UtilityLandType",
+      "plotAllocationTypeId": 1006,
+      "plotAllocationTypeNameA": "مرافق",
+      "plotAllocationTypeNameE": "Utility",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "RecreationalLandType",
+      "plotAllocationTypeId": 1007,
+      "plotAllocationTypeNameA": "ترفيهي",
+      "plotAllocationTypeNameE": "Recreational",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "InvestmentLandType",
+      "plotAllocationTypeId": 1008,
+      "plotAllocationTypeNameA": "استثماري",
+      "plotAllocationTypeNameE": "Investment",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "PublicBuildingLandType",
+      "plotAllocationTypeId": 1009,
+      "plotAllocationTypeNameA": "مباني عامة",
+      "plotAllocationTypeNameE": "Public Building",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "PublicHouseLandType",
+      "plotAllocationTypeId": 1010,
+      "plotAllocationTypeNameA": "مسكن شعبي",
+      "plotAllocationTypeNameE": "Government Housing",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    },
+    {
+      "elmsPlotAllocationTypeConst": "PublicOpenSpaceLandType",
+      "plotAllocationTypeId": 1011,
+      "plotAllocationTypeNameA": "مناطق عامة",
+      "plotAllocationTypeNameE": "Public Open Space",
+      "updateByDate": "2018-11-29T10:03:16",
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

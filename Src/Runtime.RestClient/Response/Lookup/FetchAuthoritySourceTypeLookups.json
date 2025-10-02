@@ -1,0 +1,36 @@
+{
+  "result": [
+    {
+      "authoritySourceTypeId": 1000,
+      "authoritySourceTypeNameA": "اخرى",
+      "authoritySourceTypeNameE": "Other",
+      "migNote": 1002.0,
+      "migNoteL": "",
+      "migNoteLm": "",
+      "urlArgs": null
+    },
+    {
+      "authoritySourceTypeId": 1001,
+      "authoritySourceTypeNameA": "ديوان",
+      "authoritySourceTypeNameE": "DIWAN",
+      "migNote": 1001.0,
+      "migNoteL": "",
+      "migNoteLm": "",
+      "urlArgs": null
+    },
+    {
+      "authoritySourceTypeId": 1002,
+      "authoritySourceTypeNameA": "محكمة",
+      "authoritySourceTypeNameE": "Court",
+      "migNote": 1000.0,
+      "migNoteL": "",
+      "migNoteLm": "",
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

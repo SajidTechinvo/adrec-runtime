@@ -1,0 +1,47 @@
+{
+  "result": [
+    {
+      "buildingPercent": 0.0,
+      "businessFlags": null,
+      "colorCode": "",
+      "landuseConst": "ResidentialLand",
+      "landuseId": 4046,
+      "landuseNameA": "بناية سكنية",
+      "landuseNameE": "Residential Building",
+      "lucCode": "",
+      "mepsIdentifier": "COM-5",
+      "migNote": null,
+      "migNoteL": "",
+      "migNoteLm": "",
+      "municipalityId": 1000,
+      "parentLanduseId": 1003,
+      "joinedLandUseA": "سكني - بناية سكنية",
+      "joinedLandUseE": "Residential - Residential Building",
+      "urlArgs": null
+    },
+    {
+      "buildingPercent": 0.0,
+      "businessFlags": 2,
+      "colorCode": "FFFFFF",
+      "landuseConst": "ResidentialLand",
+      "landuseId": 1008,
+      "landuseNameA": "أرض سكنية",
+      "landuseNameE": "Residential Land",
+      "lucCode": "",
+      "mepsIdentifier": "RES-1",
+      "migNote": 1017.0,
+      "migNoteL": "",
+      "migNoteLm": "",
+      "municipalityId": 1000,
+      "parentLanduseId": 1003,
+      "joinedLandUseA": "سكني - أرض سكنية",
+      "joinedLandUseE": "Residential - Residential Land",
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

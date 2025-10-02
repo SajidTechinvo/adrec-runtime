@@ -1,0 +1,16 @@
+{
+  "result": [
+    {
+      "elmsSurveyRequestorTypeConst": "Contractor",
+      "surveyRequestorType": 3,
+      "surveyRequestorTypeNameA": "مقاول",
+      "surveyRequestorTypeNameE": "Contractor",
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

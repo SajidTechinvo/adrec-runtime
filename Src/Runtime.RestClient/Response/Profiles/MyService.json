@@ -1,0 +1,45 @@
+{
+  "result": [
+    {
+      "workflowConst": "TemporaryOutdoorSeatingPermitOrPavementWorks",
+      "workflowNameE": "Request a Permit for Temporary Outdoor Seating",
+      "workflowNameA": "طلب تصريح جلسة خارجية مؤقتة",
+      "workflowId": 1187,
+      "isMostlyUsedService": false,
+      "isFavorite": false,
+      "count": 1
+    },
+    {
+      "workflowConst": "RequestRefundOfFeesAndAmounts",
+      "workflowNameE": "Request a Refund of Fees and Amounts",
+      "workflowNameA": "طلب استرداد الرسوم والمبالغ",
+      "workflowId": 1193,
+      "isMostlyUsedService": false,
+      "isFavorite": false,
+      "count": 5
+    },
+    {
+      "workflowConst": "ElmsAllotmentOfRanchPlots",
+      "workflowNameE": "Request Ranch Allocation",
+      "workflowNameA": "طلب تخصيص عزبة",
+      "workflowId": 1447,
+      "isMostlyUsedService": false,
+      "isFavorite": false,
+      "count": 10
+    },
+    {
+      "workflowConst": "ElmsTenancyAgreementTerminationIndustrialTempPlots",
+      "workflowNameE": "Terminate a Governmental Land Lease Contract",
+      "workflowNameA": "طلب إنهاء عقد إيجار أرض حكومية",
+      "workflowId": 1446,
+      "isMostlyUsedService": false,
+      "isFavorite": false,
+      "count": 3
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

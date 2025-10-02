@@ -1,0 +1,29 @@
+{
+  "result": [
+    {
+      "appraisalValueTypeId": 1000,
+      "appraisalValueTypeNameA": "فارغة",
+      "appraisalValueTypeNameE": "Blank",
+      "migNote": 1000.0,
+      "migNoteL": "",
+      "migNoteLm": "",
+      "municipalityId": 1000,
+      "urlArgs": null
+    },
+    {
+      "appraisalValueTypeId": 1001,
+      "appraisalValueTypeNameA": "مزرعة",
+      "appraisalValueTypeNameE": "Farm",
+      "migNote": 1001.0,
+      "migNoteL": "",
+      "migNoteLm": "",
+      "municipalityId": 1000,
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

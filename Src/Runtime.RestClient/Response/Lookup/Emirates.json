@@ -1,0 +1,79 @@
+{
+  "result": [
+    {
+      "elmsId": 1000,
+      "emirateConst": "AbuDhabi",
+      "emirateId": 1000,
+      "emirateNameA": "أبو ظبي",
+      "emirateNameE": "Abu Dhabi",
+      "moiId": 1,
+      "sortOrder": 1,
+      "urlArgs": null
+    },
+    {
+      "elmsId": 1004,
+      "emirateConst": "Dubai",
+      "emirateId": 1001,
+      "emirateNameA": "دبي",
+      "emirateNameE": "Dubai",
+      "moiId": 2,
+      "sortOrder": 2,
+      "urlArgs": null
+    },
+    {
+      "elmsId": 1001,
+      "emirateConst": "AlSharjah",
+      "emirateId": 1002,
+      "emirateNameA": "الشارقة",
+      "emirateNameE": "Al Sharjah",
+      "moiId": 3,
+      "sortOrder": 3,
+      "urlArgs": null
+    },
+    {
+      "elmsId": 1006,
+      "emirateConst": "Ajman",
+      "emirateId": 1003,
+      "emirateNameA": "عجمان",
+      "emirateNameE": "Ajman",
+      "moiId": 4,
+      "sortOrder": 4,
+      "urlArgs": null
+    },
+    {
+      "elmsId": 1003,
+      "emirateConst": "UmmAlQewain",
+      "emirateId": 1004,
+      "emirateNameA": "ام القيوين",
+      "emirateNameE": "Umm Al Qewain",
+      "moiId": 5,
+      "sortOrder": 5,
+      "urlArgs": null
+    },
+    {
+      "elmsId": 1005,
+      "emirateConst": "RasAlKhayma",
+      "emirateId": 1005,
+      "emirateNameA": "راس الخيمة",
+      "emirateNameE": "Ras Al Khayma",
+      "moiId": 6,
+      "sortOrder": 6,
+      "urlArgs": null
+    },
+    {
+      "elmsId": 1002,
+      "emirateConst": "AlFujairah",
+      "emirateId": 1006,
+      "emirateNameA": "الفجيرة",
+      "emirateNameE": "Al Fujairah",
+      "moiId": 7,
+      "sortOrder": 7,
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

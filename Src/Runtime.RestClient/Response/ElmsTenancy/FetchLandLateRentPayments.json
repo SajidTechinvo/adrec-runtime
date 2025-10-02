@@ -1,0 +1,24 @@
+{
+  "result": [
+    {
+      "activityTypeA": "",
+      "comments": "",
+      "endDate": "2018-12-31T00:00:00",
+      "isPaid": 0,
+      "landId": 1991,
+      "landLateRentPaymentId": 3246222,
+      "rentAmount": 2371.0,
+      "rentAmountVat": 1021.0,
+      "startDate": "2013-01-01T00:00:00",
+      "tenancyContractType": 1,
+      "tenancyContractTypeValue": "Standing",
+      "status": "Unpaid",
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

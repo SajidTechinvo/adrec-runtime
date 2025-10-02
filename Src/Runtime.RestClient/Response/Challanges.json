@@ -1,0 +1,51 @@
+{
+  "result": [
+    {
+      "title": "Average time to close applications",
+      "description": "You are on track to get this month badge. Keep going!",
+      "type": 1,
+      "value": 11,
+      "badge": "http://38.242.224.162/adrec/api/image/fluent-color_ribbon-star-32.png/view"
+    },
+    {
+      "title": "Number closed in the past 30 days",
+      "description": "Congrats. You rank in the top 5%. View leaderboard",
+      "type": 2,
+      "value": 37,
+      "badge": "http://38.242.224.162/adrec/api/image/fluent-color_trophy-48.png/view"
+    },
+    {
+      "title": "Percentage application that have hit critical state",
+      "description": "Well done. You rank in the top 25%. View leaderboard",
+      "type": 3,
+      "value": 10.3,
+      "badge": "http://38.242.224.162/adrec/api/image/fluent-color_ribbon-star-32.png/view"
+    },
+    {
+      "title": "Average time to close applications",
+      "description": "You are on track to get this month badge. Keep going!",
+      "type": 1,
+      "value": 11,
+      "badge": "http://38.242.224.162/adrec/api/image/fluent-color_ribbon-star-32.png/view"
+    },
+    {
+      "title": "Number closed in the past 30 days",
+      "description": "Congrats. You rank in the top 5%. View leaderboard",
+      "type": 2,
+      "value": 37,
+      "badge": "http://38.242.224.162/adrec/api/image/fluent-color_trophy-48.png/view"
+    },
+    {
+      "title": "Percentage application that have hit critical state",
+      "description": "Well done. You rank in the top 25%. View leaderboard",
+      "type": 3,
+      "value": 10.3,
+      "badge": "http://38.242.224.162/adrec/api/image/fluent-color_ribbon-star-32.png/view"
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

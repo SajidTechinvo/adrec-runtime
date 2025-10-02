@@ -1,0 +1,198 @@
+{
+  "result": [
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "2125555",
+      "nameE": "21215555",
+      "randomAllotmentSetId": 1018,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1002,
+      "municipalityId": 1000,
+      "nameA": "9fghi",
+      "nameE": "9fghi",
+      "randomAllotmentSetId": 1010,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1002,
+      "municipalityId": 1000,
+      "nameA": "Aramin",
+      "nameE": "Aramin",
+      "randomAllotmentSetId": 1053,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "BCD",
+      "nameE": "BCd",
+      "randomAllotmentSetId": 1011,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "تجربة97",
+      "nameE": "MRTest",
+      "randomAllotmentSetId": 1054,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "RC_Allotment",
+      "nameE": "RC_Allotment",
+      "randomAllotmentSetId": 1048,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "Set1",
+      "nameE": "Set1",
+      "randomAllotmentSetId": 1043,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1002,
+      "municipalityId": 1000,
+      "nameA": "تجربة م ر",
+      "nameE": "TEST MR",
+      "randomAllotmentSetId": 1056,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1004,
+      "municipalityId": 1000,
+      "nameA": "Tamm",
+      "nameE": "Tamm",
+      "randomAllotmentSetId": 1040,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1004,
+      "municipalityId": 1000,
+      "nameA": "الختم",
+      "nameE": "al khatim",
+      "randomAllotmentSetId": 1028,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1004,
+      "municipalityId": 1000,
+      "nameA": "الوافية",
+      "nameE": "al wafia",
+      "randomAllotmentSetId": 1012,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1004,
+      "municipalityId": 1000,
+      "nameA": "aramin1",
+      "nameE": "aramin1",
+      "randomAllotmentSetId": 1033,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1004,
+      "municipalityId": 1000,
+      "nameA": "kh",
+      "nameE": "kh",
+      "randomAllotmentSetId": 1034,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "خالد",
+      "nameE": "khaled",
+      "randomAllotmentSetId": 1049,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "new123",
+      "nameE": "new",
+      "randomAllotmentSetId": 1002,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1002,
+      "municipalityId": 1000,
+      "nameA": "new",
+      "nameE": "new",
+      "randomAllotmentSetId": 1013,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "eee",
+      "nameE": "rrr",
+      "randomAllotmentSetId": 1014,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1002,
+      "municipalityId": 1000,
+      "nameA": "test10",
+      "nameE": "test10",
+      "randomAllotmentSetId": 1047,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1004,
+      "municipalityId": 1000,
+      "nameA": "test12",
+      "nameE": "test12",
+      "randomAllotmentSetId": 1032,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "xcxc",
+      "nameE": "yyyy",
+      "randomAllotmentSetId": 1019,
+      "remarks": "",
+      "urlArgs": null
+    },
+    {
+      "landClassificationId": 1001,
+      "municipalityId": 1000,
+      "nameA": "محاضر ليوا",
+      "nameE": "محاضر ليوا",
+      "randomAllotmentSetId": 1039,
+      "remarks": "",
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

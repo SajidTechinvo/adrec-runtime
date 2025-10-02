@@ -1,0 +1,68 @@
+{
+  "result": {
+    "items": [
+      {
+        "zone": "Al Hamra",
+        "sector": "Al Hamra",
+        "plotNumber": "U15",
+        "road": "",
+        "area": 155689.81714559,
+        "dimensions": "",
+        "municipalityId": 1002,
+        "plotId": 33426
+      },
+      {
+        "zone": "Al Hamra",
+        "sector": "Al Hamra",
+        "plotNumber": "U19",
+        "road": "",
+        "area": 5008656.12151240,
+        "dimensions": "",
+        "municipalityId": 1002,
+        "plotId": 33975
+      },
+      {
+        "zone": "Al Hamra",
+        "sector": "Al Hamra",
+        "plotNumber": "U14",
+        "road": "",
+        "area": 120987.75655158,
+        "dimensions": "",
+        "municipalityId": 1002,
+        "plotId": 35779
+      },
+      {
+        "zone": "Al Hamra",
+        "sector": "Al Hamra",
+        "plotNumber": "U17",
+        "road": "",
+        "area": 188950.25134324,
+        "dimensions": "",
+        "municipalityId": 1002,
+        "plotId": 34907
+      },
+      {
+        "zone": "Al Hamra",
+        "sector": "Al Hamra",
+        "plotNumber": "U10",
+        "road": "",
+        "area": 49022.58148611,
+        "dimensions": "",
+        "municipalityId": 1002,
+        "plotId": 35734
+      }
+    ],
+    "sortBy": false,
+    "_sorting": null,
+    "sorting": null,
+    "pageSize": 5,
+    "pageNumber": 0,
+    "totalCount": 15,
+    "urlArgs": null
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

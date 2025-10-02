@@ -1,0 +1,50 @@
+{
+  "result": {
+    "title": "Land Allocation",
+    "critical": 1,
+    "action": 1,
+    "active": 1,
+    "requireAttention": [
+      {
+        "title": "Request Ranch Allocation",
+        "status": "Payment Failed",
+        "reference": "102839239829",
+        "daysRemaining": 10,
+        "progress": [ 1, 1, 1, 1, 1 ],
+        "action": "Ranch Allocation"
+      },
+
+      {
+        "title": "Request Ranch Allocation",
+        "status": "Plot Required",
+        "reference": "984728823273",
+        "daysRemaining": 12,
+        "progress": [ 1, 0, 0, 0, 0 ],
+        "action": "Ranch Allocation"
+      }
+    ],
+    "inProcess": [
+      {
+        "title": "Request Ranch Allocation",
+        "status": "Fahima Ali",
+        "reference": "3472231233242",
+        "daysRemaining": 8,
+        "progress": [ 1, 1, 0, 0, 0 ],
+        "action": "Ranch Allocation"
+      },
+      {
+        "title": "Request Ranch Allocation",
+        "status": "Mohammed A",
+        "reference": "293892882732",
+        "daysRemaining": 12,
+        "progress": [ 1, 1, 0, 0, 0 ],
+        "action": "Ranch Allocation"
+      }
+    ]
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

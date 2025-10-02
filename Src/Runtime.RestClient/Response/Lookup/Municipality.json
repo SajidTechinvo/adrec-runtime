@@ -1,0 +1,63 @@
+{
+  "result": [
+    {
+      "adgeId": "778015000",
+      "applicationFlags": null,
+      "customerId": 1004,
+      "evaluatorTradeLicenseNumber": "CN-12480",
+      "genericGcsCodeId": "31",
+      "inboxId": 1000,
+      "isDisableEmailNotification": false,
+      "mailBoxTradeLicenseNumber": "CN-1068890",
+      "municipalityConst": "AbuDhabi",
+      "municipalityFlagIndex": 1,
+      "municipalityId": 1000,
+      "municipalityNameA": "بلدية مدينة أبوظبي",
+      "municipalityNameE": "Abu Dhabi City Municipality",
+      "profLicenseDepEmail": "EDLRE@adm.gov.ae;wafa.alhosani@adm.gov.ae;Chafika.Albaloushi@adm.gov.ae;Mutab.Almehairbi@adm.gov.ae;Yousef.Alkendi@adm.gov.ae;\n",
+      "isAreaNeeded": false,
+      "urlArgs": null
+    },
+    {
+      "adgeId": "778016000",
+      "applicationFlags": null,
+      "customerId": 1004,
+      "evaluatorTradeLicenseNumber": "CN-12480",
+      "genericGcsCodeId": "32",
+      "inboxId": 1001,
+      "isDisableEmailNotification": false,
+      "mailBoxTradeLicenseNumber": "CN-1068890",
+      "municipalityConst": "AlAin",
+      "municipalityFlagIndex": 2,
+      "municipalityId": 1001,
+      "municipalityNameA": "بلدية مدينة العين",
+      "municipalityNameE": "Al Ain City Municipality",
+      "profLicenseDepEmail": "lresoffice@aam.gov.ae;sultan.fadel@aam.gov.ae;Mouzam.Alneyadi@aam.gov.ae\n",
+      "isAreaNeeded": false,
+      "urlArgs": null
+    },
+    {
+      "adgeId": "778017000",
+      "applicationFlags": null,
+      "customerId": 1004,
+      "evaluatorTradeLicenseNumber": "CN-12480",
+      "genericGcsCodeId": "33",
+      "inboxId": 1002,
+      "isDisableEmailNotification": false,
+      "mailBoxTradeLicenseNumber": "CN-1068890",
+      "municipalityConst": "AlDhafraRegion",
+      "municipalityFlagIndex": 4,
+      "municipalityId": 1002,
+      "municipalityNameA": "بلدية منطقة الظفرة",
+      "municipalityNameE": "Al Dhafra Region Municipality",
+      "profLicenseDepEmail": "LRE@drm.gov.ae;ghaniya.almazrouie@drm.gov.ae \n",
+      "isAreaNeeded": false,
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

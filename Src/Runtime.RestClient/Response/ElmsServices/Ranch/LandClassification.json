@@ -1,0 +1,36 @@
+{
+  "result": [
+    {
+      "elmsLandClassificationConst": "Ranching",
+      "landClassificationId": 1001,
+      "nameA": "عزب التربية",
+      "nameE": "Ranching",
+      "parentLandClassificationId": 1000,
+      "isSweihanRanch": false,
+      "urlArgs": null
+    },
+    {
+      "elmsLandClassificationConst": "CamelsRanch",
+      "landClassificationId": 1002,
+      "nameA": "عزبة رعاية الهجن",
+      "nameE": "Camels Ranch",
+      "parentLandClassificationId": 1000,
+      "isSweihanRanch": false,
+      "urlArgs": null
+    },
+    {
+      "elmsLandClassificationConst": "SeasonalRanch",
+      "landClassificationId": 1004,
+      "nameA": "عزب موسمية",
+      "nameE": "Seasonal Ranch",
+      "parentLandClassificationId": 1000,
+      "isSweihanRanch": false,
+      "urlArgs": null
+    }
+  ],
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

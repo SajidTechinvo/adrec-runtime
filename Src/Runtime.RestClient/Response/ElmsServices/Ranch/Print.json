@@ -1,0 +1,41 @@
+{
+  "result": {
+    "result": {
+      "wfiDocumentAttachmentId": 1007849,
+      "wfiDocumentId": 0,
+      "documentId": 210729,
+      "attachmentTitle": "TenancyAgreementRanchContract",
+      "attachmentDate": "2025-05-01T15:03:30",
+      "uploadByCustomerNameA": "ADM المكتب الخلفي المشرف الكامل",
+      "uploadByCustomerNameE": "ADM Back Office Full Admin",
+      "downloadUrl": "KUCLGAcoYPm29mKxIgPxPn4Eqa2WaYyrcK6mDP53c6wmd3jpygGemPyGWrb5DH5f",
+      "deleteUrl": null,
+      "isVerified": false,
+      "isStampNeeded": false,
+      "workflowStatusId": null,
+      "locationAddressId": null,
+      "insInstanceId": 0,
+      "insInstanceCheckItemId": 0,
+      "documentReferenceNumber": null,
+      "documentIssueDate": null,
+      "documentExpireDate": null,
+      "contractStatusA": null,
+      "contractStatusE": null,
+      "fileSize": 0,
+      "locationCoordinate": null,
+      "filePath": null,
+      "documentConst": null,
+      "urlArgs": null
+    },
+    "targetUrl": null,
+    "unAuthorizedRequest": false,
+    "__app": true,
+    "success": true,
+    "error": null
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

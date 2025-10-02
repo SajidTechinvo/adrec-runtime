@@ -1,0 +1,27 @@
+{
+  "result": {
+    "applicationUserId": 1001,
+    "municipalityId": 1000,
+    "municipalityNameA": "بلدية مدينة أبوظبي",
+    "municipalityNameE": "Abu Dhabi City Municipality",
+    "applicationInboxId": 1000,
+    "applicationInboxConst": "ADMInbox",
+    "applicationInboxNameA": "بلدية مدينة أبوظبي",
+    "applicationInboxNameE": "Abu Dhabi City Municipality",
+    "organizationUnitId": 1019,
+    "organizationUnitNameA": "إدارة الرقابة والتفتيش",
+    "organizationUnitNameE": "Control and Inspection Department",
+    "orgUnitCategoryId": 1000,
+    "orgUnitCategorynameA": "إدارة الرقابة والتفتيش",
+    "orgUnitCategorynameE": "Control and Inspection Department",
+    "employeeLevel": null,
+    "bizEntityLookupValueId": 1013,
+    "bizEntityLookupValueNameA": "رسوم التأمين - إدارة عمليات الفنية",
+    "bizEntityLookupValueNameE": "Insurance Fee - Technical Operations Management"
+  },
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": true,
+  "error": null
+}

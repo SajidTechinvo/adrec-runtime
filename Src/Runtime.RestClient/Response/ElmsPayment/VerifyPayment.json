@@ -1,0 +1,25 @@
+{
+  "result": null,
+  "targetUrl": null,
+  "unAuthorizedRequest": false,
+  "__app": true,
+  "success": false,
+  "error": {
+    "code": 702,
+    "message": "ApplicationValidationFailed",
+    "details": null,
+    "validationErrors": [
+      {
+        "key": "Invoice Not Paid",
+        "message": "Invoice Not Paid",
+        "members": null,
+        "messageAr": null,
+        "type": 0,
+        "urlArgs": null,
+        "workflowConst": null,
+        "applicationNumber": null,
+        "gspCode": null
+      }
+    ]
+  }
+}
