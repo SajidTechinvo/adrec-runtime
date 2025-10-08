@@ -32,6 +32,7 @@ namespace Runtime.RestClient.Interfaces.Unit
         IElmsDecreeClient Decree { get; }
         IEmployeeClient Employee { get; }
         IFetchClient Fetch { get; }
+        IDatastoreClient Datastore { get; }
         IFileClient File { get; }
         IImportPlotClient ImportPlot { get; }
         IInboxClient Inbox { get; }

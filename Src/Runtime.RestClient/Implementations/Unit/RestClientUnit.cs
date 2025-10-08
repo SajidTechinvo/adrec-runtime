@@ -66,9 +66,9 @@ namespace Runtime.RestClient.Implementations.Unit
     {
         #region Private Fields
 
-        //private readonly string env = "Production";
+        private readonly string env = "Production";
 
-        private readonly string env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+        //private readonly string env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
         private readonly IHttpClientFactory _clientFactory = clientFactory;
 
         private readonly ICustomHttpFactory _customFactory = customFactory;
@@ -89,6 +89,7 @@ namespace Runtime.RestClient.Implementations.Unit
         private IElmsTenancyClient _tenancy;
         private IEmployeeClient _employee;
         private IFetchClient _fetch;
+        private IDatastoreClient _datastore;
         private IFileClient _file;
         private IImportPlotClient _importPlot;
         private IInboxClient _inbox;
@@ -130,6 +131,7 @@ namespace Runtime.RestClient.Implementations.Unit
         #region Properties
 
         public IFetchClient Fetch => _fetch ??= new FetchClient(_clientFactory);
+        public IDatastoreClient Datastore => _datastore ??= new DatastoreClient(_clientFactory);
         public ISwaggerClient Swagger => _swagger ??= new SwaggerClient(_clientFactory);
 
         public IAuthClient Auth

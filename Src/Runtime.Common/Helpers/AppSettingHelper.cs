@@ -109,6 +109,8 @@ namespace Runtime.Common.Helpers
             return GetSettingValue(CustomSettings, BaseURL);
         }
 
+        public static string GetServiceBuilderUrl() => GetSettingValue("CustomSettings", "ServiceBuilderUrl");
+
         public static string[] GetOrigins()
         {
             IConfigurationRoot configuration = GetSettingConfiguration();

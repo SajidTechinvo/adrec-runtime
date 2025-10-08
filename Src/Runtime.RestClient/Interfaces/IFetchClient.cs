@@ -1,7 +1,7 @@
 ﻿using ErrorOr;
 using Runtime.Common.Lookups;
 
-namespace ADREC.RestClient.Interfaces
+namespace Runtime.RestClient.Interfaces
 {
     public interface IFetchClient
     {

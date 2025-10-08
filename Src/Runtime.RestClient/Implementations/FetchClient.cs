@@ -1,13 +1,14 @@
-﻿using ADREC.RestClient.Interfaces;
-using ErrorOr;
+﻿using ErrorOr;
 using Runtime.Common.Errors;
 using Runtime.Common.Lookups;
+using Runtime.RestClient.Interfaces;
 using System.Net;
 using System.Text;
 using System.Text.Json;
 
 namespace Runtime.RestClient.Implementations
 {
+
     internal class FetchClient(IHttpClientFactory clientFactory) : IFetchClient
     {
         #region Private Fields

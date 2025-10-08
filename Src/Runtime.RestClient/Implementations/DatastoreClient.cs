@@ -1,9 +1,13 @@
-﻿using Runtime.Common.Errors.Exceptions;
+﻿using ErrorOr;
+using Runtime.Common.Errors.Exceptions;
+using Runtime.Common.Helpers;
+using Runtime.DTO.ApiModels;
 using Runtime.RestClient.Interfaces;
+using System.Net.Http.Json;
 
 namespace Runtime.RestClient.Implementations
 {
-    internal class SwaggerClient(IHttpClientFactory clientFactory) : ISwaggerClient
+    internal class DatastoreClient(IHttpClientFactory clientFactory) : IDatastoreClient
     {
         #region Private Fields
 
@@ -13,15 +17,17 @@ namespace Runtime.RestClient.Implementations
 
         #region Methods
 
-        public async Task<string> GetSwaggerJson(string url)
+        public async Task<ErrorOr<TableResponse>> GetTable(string token, long id)
         {
             using var client = _client.CreateClient();
             try
             {
-                var response = await client.GetAsync(url);
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+                var response = await client.GetAsync($"{AppSettingHelper.GetServiceBuilderUrl()}/api/data-store/{id}");
+
                 if (response.IsSuccessStatusCode)
                 {
-                    return await response.Content.ReadAsStringAsync();
+                    return await response.Content.ReadFromJsonAsync<TableResponse>();
                 }
                 else
                 {
