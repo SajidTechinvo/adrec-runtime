@@ -7,6 +7,41 @@ using System.Net.Http.Json;
 
 namespace Runtime.RestClient.Implementations
 {
+    internal class PageInfoClient(IHttpClientFactory clientFactory) : IPageInfoClient
+    {
+        #region Private Fields
+
+        private readonly IHttpClientFactory _client = clientFactory;
+
+        #endregion Private Fields
+
+        #region Methods
+
+        public async Task<ErrorOr<PageInfoResponse>> GetPage(string token, string slug)
+        {
+            using var client = _client.CreateClient();
+            try
+            {
+                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+                var response = await client.GetAsync($"{AppSettingHelper.GetServiceBuilderUrl()}/api/page_info/slug/{slug}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<PageInfoResponse>();
+                }
+                else
+                {
+                    throw new GeneralException("An Error occurred while getting data.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new GeneralException("An error occurred while getting data. See inner exception for details", ex);
+            }
+        }
+
+        #endregion Methods
+    }
+
     internal class DatastoreClient(IHttpClientFactory clientFactory) : IDatastoreClient
     {
         #region Private Fields

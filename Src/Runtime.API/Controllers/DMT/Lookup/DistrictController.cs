@@ -8,7 +8,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.Lookup
 {
     [Route("district")]
-    public class DistrictController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class DistrictController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

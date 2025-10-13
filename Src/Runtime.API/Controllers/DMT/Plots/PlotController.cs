@@ -4,12 +4,11 @@ using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
 using Runtime.Common.Lookups;
 using Runtime.RestClient.Interfaces.Unit;
-using System.Net;
 
 namespace Runtime.API.Controllers.DMT.Plots
 {
     [Route("plot")]
-    public class PlotController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class PlotController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
@@ -29,7 +28,9 @@ namespace Runtime.API.Controllers.DMT.Plots
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Plot.GetPlotDetails(cookies, id);
 
@@ -41,7 +42,9 @@ namespace Runtime.API.Controllers.DMT.Plots
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return Ok(await _rest.Plot.GetPlotOwners(cookies, id));
         }
@@ -51,7 +54,9 @@ namespace Runtime.API.Controllers.DMT.Plots
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Plot.FetchPlotProfile(cookies, args);
 
@@ -63,7 +68,9 @@ namespace Runtime.API.Controllers.DMT.Plots
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Plot.FetchPlotProfileServices(cookies, args);
 
@@ -79,7 +86,9 @@ namespace Runtime.API.Controllers.DMT.Plots
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Plot.SearchPlots(cookies, requestId, municipality, landuseId, zone,
                             publicHouseNo, sector, roadId, plotNumber, plotFileNumber, matchTypeId.ToString(), pageSize,
@@ -93,7 +102,9 @@ namespace Runtime.API.Controllers.DMT.Plots
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Plot.FetchPlotByTenancyContractId(cookies, args, id);
 

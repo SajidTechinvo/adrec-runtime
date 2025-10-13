@@ -10,7 +10,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.ElmsServices
 {
     [Route("manage-plot-legal-remarks")]
-    public class ManagePlotLegalRemarksController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class ManagePlotLegalRemarksController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

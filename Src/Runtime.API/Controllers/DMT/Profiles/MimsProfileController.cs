@@ -10,7 +10,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.Profiles
 {
     [Route("mims-profile")]
-    public class ProfileController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class ProfileController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

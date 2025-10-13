@@ -9,7 +9,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.ElmsServices
 {
     [Route("edit-unit-detail")]
-    public class EditUnitDetailController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class EditUnitDetailController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

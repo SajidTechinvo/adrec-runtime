@@ -10,7 +10,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.ElmsServices
 {
     [Route("increase-plot-area")]
-    public class IncreasePlotAreaController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class IncreasePlotAreaController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

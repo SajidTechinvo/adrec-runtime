@@ -6,9 +6,8 @@ using Runtime.RestClient.Interfaces.Unit;
 
 namespace Runtime.API.Controllers
 {
-
-    [Route("api/data-store")]
-    public class DataStoreController(IRestClientUnit rest, ILogger logger) : ApiController(logger)
+    [Route("api/page_info")]
+    public class PageInformationController(IRestClientUnit rest, ILogger logger) : ApiController(logger)
     {
         #region Private Methods
 
@@ -22,16 +21,16 @@ namespace Runtime.API.Controllers
 
         #region GET
 
-        [HttpGet("{id}")]
+        [HttpGet("slug/{slug}")]
         [ProducesResponseType(typeof(TableResponse), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetDatastore(long id)
+        public async Task<IActionResult> GetDatastore(string slug)
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var table = await _rest.Datastore.GetTable(token, id);
-            if (table.IsError) return Problem(table.Errors);
+            var page = await _rest.PageInfo.GetPage(token, slug);
+            if (page.IsError) return Problem(page.Errors);
 
-            return Ok(table.Value);
+            return Ok(page.Value);
         }
 
         #endregion GET

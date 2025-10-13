@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.OpenApi.Models;
 using Runtime.API.Caching;
+using Runtime.Common;
 using Runtime.Common.Helpers;
 using Runtime.RestClient;
 using StackExchange.Redis;
-using System.Reflection;
 
 namespace Runtime.API
 {
@@ -45,12 +45,14 @@ namespace Runtime.API
                     }
                 });
                 // XML Doc
-                string xmlDocFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                string xmlDocFilePath = Path.Combine(AppContext.BaseDirectory, xmlDocFileName);
-                c.IncludeXmlComments(xmlDocFilePath);
+                //string xmlDocFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                //string xmlDocFilePath = Path.Combine(AppContext.BaseDirectory, xmlDocFileName);
+                //c.IncludeXmlComments(xmlDocFilePath);
             });
 
             services.AddRestClientServices(configuration);
+            services.AddCommon(configuration);
+
 
             services.AddResponseCompression(option =>
             {

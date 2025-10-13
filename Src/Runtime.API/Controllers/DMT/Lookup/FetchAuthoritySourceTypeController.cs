@@ -9,7 +9,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.Lookup
 {
     [Route("fetch-authority-source-type")]
-    public class FetchAuthoritySourceTypeController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class FetchAuthoritySourceTypeController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

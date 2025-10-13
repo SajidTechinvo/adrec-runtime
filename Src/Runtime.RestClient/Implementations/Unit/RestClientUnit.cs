@@ -1,5 +1,4 @@
-﻿using ADREC.RestClient.Implementations;
-using ADREC.RestClient.Implementations.DMT;
+﻿using ADREC.RestClient.Implementations.DMT;
 using ADREC.RestClient.Implementations.DMT.Common;
 using ADREC.RestClient.Implementations.DMT.ElmsDecree;
 using ADREC.RestClient.Implementations.DMT.ElmsPayment;
@@ -90,6 +89,7 @@ namespace Runtime.RestClient.Implementations.Unit
         private IEmployeeClient _employee;
         private IFetchClient _fetch;
         private IDatastoreClient _datastore;
+        private IPageInfoClient _pageInfo;
         private IFileClient _file;
         private IImportPlotClient _importPlot;
         private IInboxClient _inbox;
@@ -132,6 +132,7 @@ namespace Runtime.RestClient.Implementations.Unit
 
         public IFetchClient Fetch => _fetch ??= new FetchClient(_clientFactory);
         public IDatastoreClient Datastore => _datastore ??= new DatastoreClient(_clientFactory);
+        public IPageInfoClient PageInfo => _pageInfo ??= new PageInfoClient(_clientFactory);
         public ISwaggerClient Swagger => _swagger ??= new SwaggerClient(_clientFactory);
 
         public IAuthClient Auth

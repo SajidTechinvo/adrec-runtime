@@ -8,7 +8,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.Lookup
 {
     [Route("amount-in-word")]
-    public class AmountInWordController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class AmountInWordController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

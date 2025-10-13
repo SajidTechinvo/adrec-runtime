@@ -11,8 +11,8 @@ using System.Security.Claims;
 namespace Runtime.API.Controllers.DMT
 {
     [Route("dmt")]
-    public class DmtLoginController(IRedisCacheService redis, IJwtTokenGenerator jwt,
-                                     ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class DmtAuthController(IRedisCacheService redis, IJwtTokenGenerator jwt,
+                                     ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
@@ -42,6 +42,9 @@ namespace Runtime.API.Controllers.DMT
                 token = _jwt.GenerateToken(model.Email, TimeSpan.FromHours(8));
                 await _redis.SetCacheValueAsync(token, cookies);
 
+                if (!string.IsNullOrWhiteSpace(model.Token))
+                    await _redis.SetCacheValueAsync(model.Token, token);
+
                 return Ok(token);
             }
 
@@ -61,6 +64,10 @@ namespace Runtime.API.Controllers.DMT
             token = _jwt.GenerateToken(model.Email, expiry - DateTime.UtcNow);
             await _redis.SetCacheValueAsync(token, cookies);
 
+            if (!string.IsNullOrWhiteSpace(model.Token))
+                await _redis.SetCacheValueAsync(model.Token, token);
+
+
             return Ok(token);
         }
 
@@ -69,6 +76,7 @@ namespace Runtime.API.Controllers.DMT
         #region GET
 
         [HttpGet("current")]
+        [ProducesResponseType(typeof(object), 200)]
         public IActionResult Current()
         {
             var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;

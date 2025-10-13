@@ -2,19 +2,38 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Runtime.API.Caching;
+using Runtime.Common.Errors.Exceptions;
+using System.Net;
 using System.Text.Json;
 
 namespace Runtime.API.Controllers.Base
 {
     [Authorize]
     [ApiController]
-    public class ApiController(ILogger logger) : ControllerBase
+    public class ApiController : ControllerBase
     {
         #region Private Fields
 
-        protected readonly ILogger _logger = logger;
+        protected readonly ILogger _logger;
+        private readonly IRedisCacheService _redis;
 
         #endregion Private Fields
+
+        #region Constructors
+
+        public ApiController(IRedisCacheService redis, ILogger logger)
+        {
+            _logger = logger;
+            _redis = redis;
+        }
+
+        public ApiController(ILogger logger)
+        {
+            _logger = logger;
+        }
+
+        #endregion Constructors
 
         #region Methods
 
@@ -126,6 +145,21 @@ namespace Runtime.API.Controllers.Base
             Response.Headers["X-Total-Records"] = totalRecords.ToString();
 
             return Ok(action(data));
+        }
+
+        protected async Task<List<Cookie>> GetCookies(string token, string applicationName)
+        {
+            switch (applicationName)
+            {
+                case "Runtime":
+                    return await _redis.GetCacheValueAsync<List<Cookie>>(token) ?? throw new NotFoundException("Cookies not found in cache.");
+
+
+                case "ServiceBuilder":
+                    var runTimeToken = await _redis.GetCacheValueAsync<string>(token) ?? throw new NotFoundException("Token not found in cache.");
+                    return await GetCookies(runTimeToken, "Runtime");
+            }
+            throw new GeneralException("An error occurred while processing your request.");
         }
 
         #endregion Methods

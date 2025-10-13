@@ -9,7 +9,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.Plots
 {
     [Route("gis-plot")]
-    public class GisPlotController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class GisPlotController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

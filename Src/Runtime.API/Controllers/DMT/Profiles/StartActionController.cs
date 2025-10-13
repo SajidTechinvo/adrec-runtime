@@ -8,7 +8,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.Profiles
 {
     [Route("start-action")]
-    public class StartActionController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class StartActionController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
@@ -38,7 +38,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return (await _rest.Profile.GetMyServiceResponse(cookies)).Match(data => Ok(data.Result), Problem);
         }
@@ -48,7 +50,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return (await _rest.Profile.GetPopularServiceResponse(cookies)).Match(success => Ok(success.Result.Take(10)), Problem);
         }
@@ -58,7 +62,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return (await _rest.Profile.GetServiceOverview(cookies)).Match(Ok, Problem);
         }
@@ -68,7 +74,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return (await _rest.Profile.GetServiceDetails(cookies)).Match(Ok, Problem);
         }
@@ -78,7 +86,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Profile.GetActiveServiceResponse(cookies);
 

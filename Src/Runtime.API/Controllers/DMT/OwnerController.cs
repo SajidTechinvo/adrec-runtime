@@ -4,12 +4,11 @@ using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
 using Runtime.Common.Lookups;
 using Runtime.RestClient.Interfaces.Unit;
-using System.Net;
 
 namespace Runtime.API.Controllers.DMT
 {
     [Route("owner")]
-    public class OwnerController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class OwnerController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
@@ -34,7 +33,9 @@ namespace Runtime.API.Controllers.DMT
 
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Owner.GetOwners(cookies, args, requestId, ownerName, tribe, nationalNumber,
                                                      nationalityId, familyBookNumber, cityNumber, passPortNumber,
@@ -53,7 +54,9 @@ namespace Runtime.API.Controllers.DMT
 
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Owner.GetCompanies(cookies, args, chamberOfCommerceNo, matchType, ownerName, pageNumber,
                                                                  pageSize, requestId, totalCount, tradeLicense);
@@ -66,7 +69,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Owner.SearchAuthorizedOwners(cookies, args);
 
@@ -78,7 +83,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Owner.OwnerPlots(cookies, args);
 
@@ -90,7 +97,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Owner.GetOwnerProfilePlotsWithShares(cookies, args, id);
 

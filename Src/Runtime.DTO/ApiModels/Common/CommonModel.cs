@@ -48,6 +48,8 @@ namespace Runtime.DTO.ApiModels.Common
         [JsonPropertyName("password")]
         [Required(AllowEmptyStrings = false)]
         public string Password { get; set; }
+
+        public string Token { get; set; }
     }
 
     public class ForgotPassword

@@ -33,6 +33,7 @@ namespace Runtime.RestClient.Interfaces.Unit
         IEmployeeClient Employee { get; }
         IFetchClient Fetch { get; }
         IDatastoreClient Datastore { get; }
+        IPageInfoClient PageInfo { get; }
         IFileClient File { get; }
         IImportPlotClient ImportPlot { get; }
         IInboxClient Inbox { get; }

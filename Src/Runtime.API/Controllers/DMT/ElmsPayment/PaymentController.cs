@@ -9,7 +9,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.ElmsPayment
 {
     [Route("payment")]
-    public class PaymentController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class PaymentController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

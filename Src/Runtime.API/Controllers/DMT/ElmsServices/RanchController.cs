@@ -6,17 +6,15 @@ using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels.DMTModel.Common;
 using Runtime.DTO.ApiModels.DMTModel.ElmsServices;
 using Runtime.RestClient.Interfaces.Unit;
-using System.Net;
 
 namespace Runtime.API.Controllers.DMT.ElmsServices
 {
     [Route("ranch")]
-    public class RanchController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class RanchController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
         private readonly IRestClientUnit _rest = rest;
-        private readonly IRedisCacheService _redis = redis;
 
         #endregion Private Fields
 
@@ -31,7 +29,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Ranch.SearchRanchLandClassifications(cookies, args, model);
 
@@ -43,7 +43,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Ranch.StartWorkflow(cookies, args, model);
 
@@ -55,7 +57,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.RegistrationSubmit(cookies, args, model).Match(Ok, Problem);
         }
@@ -65,7 +69,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.HoldApplication(cookies, args, model).Match(Ok, Problem);
         }
@@ -75,7 +81,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.RegistrationCancel(cookies, args, model).Match(Ok, Problem);
         }
@@ -85,7 +93,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.AddRecipients(cookies, args, model).Match(Ok, Problem);
         }
@@ -95,7 +105,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.RemoveRecipients(cookies, args, model).Match(Ok, Problem);
         }
@@ -105,7 +117,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.AssignPlot(cookies, args, plotId).Match(Ok, Problem);
         }
@@ -115,7 +129,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.AssignmentBack(cookies, args, model).Match(Ok, Problem);
         }
@@ -125,7 +141,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Ranch.AssignmentReject(cookies, args, model);
 
@@ -137,7 +155,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.AssignmentSubmit(cookies, args, model).Match(Ok, Problem);
         }
@@ -147,7 +167,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.ApprovalSubmit(cookies, args, model).Match(Ok, Problem);
         }
@@ -157,7 +179,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.ApprovalReject(cookies, args, model).Match(Ok, Problem);
         }
@@ -167,7 +191,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.ApprovalBack(cookies, args, model).Match(Ok, Problem);
         }
@@ -177,7 +203,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.ConfirmCollectingPaymentsSubmit(cookies, args, model).Match(Ok, Problem);
         }
@@ -187,7 +215,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.Print(cookies, args).Match(Ok, Problem);
         }
@@ -197,7 +227,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.PrintSubmit(cookies, args, model).Match(Ok, Problem);
         }
@@ -207,7 +239,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Ranch.BackOfficePaymentSubmit(cookies, args, model);
 
@@ -223,7 +257,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.GetStepInfo(cookies, args).Match(Ok, Problem);
         }
@@ -233,7 +269,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return await _rest.Ranch.SearchRandomAllotmentSets(cookies, args, isRanch, municipalityId).Match(Ok, Problem);
         }
@@ -243,7 +281,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Ranch.GetRanchCards(cookies, pageSize, pageNumber);
 
@@ -255,7 +295,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Ranch.GetApplicationDetails(cookies, args);
 
@@ -267,7 +309,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Ranch.GetApplicants(cookies, args);
 

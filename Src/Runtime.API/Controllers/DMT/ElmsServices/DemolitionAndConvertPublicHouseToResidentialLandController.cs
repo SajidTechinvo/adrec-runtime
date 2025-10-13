@@ -10,7 +10,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.ElmsServices
 {
     [Route("demolition-and-convert-public-house-to-residential-land")]
-    public class DemolitionAndConvertPublicHouseToResidentialLandController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class DemolitionAndConvertPublicHouseToResidentialLandController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
     {
         #region Private Fields
 

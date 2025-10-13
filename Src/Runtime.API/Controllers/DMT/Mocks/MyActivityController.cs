@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
 using Runtime.DTO.RestClientModels.DMT;
 using Runtime.RestClient.Interfaces.Unit;
@@ -7,7 +8,7 @@ using Runtime.RestClient.Interfaces.Unit;
 namespace Runtime.API.Controllers.DMT.Mocks
 {
     [Route("my-activity")]
-    public class MyActivityController(ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class MyActivityController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 

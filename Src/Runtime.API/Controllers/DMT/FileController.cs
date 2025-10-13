@@ -5,12 +5,11 @@ using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels.DMTModel;
 using Runtime.RestClient.Interfaces.Unit;
-using System.Net;
 
 namespace Runtime.API.Controllers.DMT
 {
     [Route("file")]
-    public class FileController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(logger)
+    public class FileController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
@@ -30,7 +29,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.File.UploadFileAsync(cookies, Convert.FromBase64String(model.File.FileContent), model.Name, model.File.FileName, args);
 
@@ -51,7 +52,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.File.DeleteFileAsync(cookies, args);
 
