@@ -3,7 +3,6 @@ using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
 using Runtime.RestClient.Interfaces.Unit;
-using System.Net;
 
 namespace Runtime.API.Controllers.DMT.Profiles
 {
@@ -28,7 +27,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             return (await _rest.Profile.GetStartActionResponse(cookies)).Match(Ok, Problem);
         }

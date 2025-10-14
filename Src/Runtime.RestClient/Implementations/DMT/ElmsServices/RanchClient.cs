@@ -145,9 +145,9 @@ namespace Runtime.RestClient.Implementations.DMT.ElmsServices
             return await Post<DmtResponseWrapper<WorkflowResponse>, BackOfficePaymentSubmitRequest>(cookies, $"{_settings.BaseUrl}/api/elmsAllotmentOfRanchPlots/BackOfficePaymentSubmit?args={args}", model);
         }
 
-        public async Task<ErrorOr<DmtResponseWrapper<List<RanchCardResponse>>>> GetRanchCards(List<Cookie> cookies, int pageSize, int pageNumber)
+        public async Task<ErrorOr<DmtResponseWrapper<RanchCardResponse>>> GetRanchCards(List<Cookie> cookies, int pageSize, int pageNumber)
         {
-            return await Post<DmtResponseWrapper<List<RanchCardResponse>>, object>(cookies, $"{_settings.BaseUrl}/api/OneHub/GetRancheCardListing", new { pageNumber, pageSize });
+            return await Post<DmtResponseWrapper<RanchCardResponse>, object>(cookies, $"{_settings.BaseUrl}/api/OneHub/GetRancheCardListing", new { pageNumber, pageSize });
         }
 
         public async Task<ErrorOr<DmtResponseWrapper<ApplicationDetailResponse>>> GetApplicationDetails(List<Cookie> cookies, string args)

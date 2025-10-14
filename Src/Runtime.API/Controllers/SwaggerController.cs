@@ -106,7 +106,7 @@ namespace Runtime.API.Controllers
         [ProducesResponseType(typeof(List<EndpointInfoResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetSwagger()
         {
-            var json = await _rest.Swagger.GetSwaggerJson("http://38.242.224.162/adrec/swagger/v1/swagger.json");
+            var json = await _rest.Swagger.GetSwaggerJson("http://adrec-runtime.processclerk.com/swagger/v1/swagger.json");
 
             var swagger = JObject.Parse(json);
             return Ok(ParseSwagger(swagger));

@@ -24,7 +24,7 @@ namespace Runtime.RestClient.Interfaces.DMT.ElmsServices
 
         Task<ErrorOr<DmtResponseWrapper<List<RanchAllocationSetResponse>>>> SearchRandomAllotmentSets(List<Cookie> cookies, string args, bool isRanch, long municipalityId);
 
-        Task<ErrorOr<DmtResponseWrapper<List<RanchCardResponse>>>> GetRanchCards(List<Cookie> cookies, int pageSize, int pageNumber);
+        Task<ErrorOr<DmtResponseWrapper<RanchCardResponse>>> GetRanchCards(List<Cookie> cookies, int pageSize, int pageNumber);
 
         Task<ErrorOr<DmtResponseWrapper<object>>> AddRecipients(List<Cookie> cookies, string args, AddRecipientRequest model);
 

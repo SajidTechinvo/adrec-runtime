@@ -94,10 +94,10 @@ namespace Runtime.RestClient.Implementations.DMT.ElmsServices
             return JsonSerializer.Deserialize<DmtResponseWrapper<List<RanchAllocationSetResponse>>>(content);
         }
 
-        public async Task<ErrorOr<DmtResponseWrapper<List<RanchCardResponse>>>> GetRanchCards(List<Cookie> cookies, int pageSize, int pageNumber)
+        public async Task<ErrorOr<DmtResponseWrapper<RanchCardResponse>>> GetRanchCards(List<Cookie> cookies, int pageSize, int pageNumber)
         {
             var content = await GetFileContent("Cards.json");
-            return JsonSerializer.Deserialize<DmtResponseWrapper<List<RanchCardResponse>>>(content);
+            return JsonSerializer.Deserialize<DmtResponseWrapper<RanchCardResponse>>(content);
         }
 
         public async Task<ErrorOr<DmtResponseWrapper<object>>> HoldApplication(List<Cookie> cookies, string args, HoldApplicationRequest model)

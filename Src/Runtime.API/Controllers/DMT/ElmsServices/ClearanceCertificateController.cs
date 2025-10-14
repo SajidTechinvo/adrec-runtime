@@ -5,17 +5,15 @@ using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels.DMTModel.Common;
 using Runtime.DTO.ApiModels.DMTModel.ElmsServices;
 using Runtime.RestClient.Interfaces.Unit;
-using System.Net;
 
 namespace Runtime.API.Controllers.DMT.ElmsServices
 {
     [Route("clearance-certificate")]
-    public class ClearanceCertificateController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
+    public class ClearanceCertificateController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
         private readonly IRestClientUnit _rest = rest;
-        private readonly IRedisCacheService _redis = redis;
 
         #endregion Private Fields
 
@@ -30,7 +28,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.ClearanceCertificate.StartWorkflow(cookies, args, model);
 
@@ -42,7 +42,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.ClearanceCertificate.RegisterSubmit(cookies, args, model);
 
@@ -54,7 +56,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.ClearanceCertificate.RegisterCancel(cookies, args, model);
 
@@ -66,7 +70,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.ClearanceCertificate.ApprovalSubmit(cookies, args, model);
 
@@ -78,7 +84,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.ClearanceCertificate.ApprovalReject(cookies, args, model);
 
@@ -90,7 +98,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.ClearanceCertificate.Print(cookies, args);
 
@@ -102,7 +112,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.ClearanceCertificate.PrintSubmit(cookies, args, model);
 
@@ -118,7 +130,9 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.ClearanceCertificate.GetStepInfo(cookies, args);
 

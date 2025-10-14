@@ -3,12 +3,11 @@ using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
 using Runtime.RestClient.Interfaces.Unit;
-using System.Net;
 
 namespace Runtime.API.Controllers.DMT.Lookup
 {
     [Route("land-usage")]
-    public class LandUsageController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
+    public class LandUsageController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
@@ -35,7 +34,9 @@ namespace Runtime.API.Controllers.DMT.Lookup
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Lookup.SearchLandUsage(cookies, id, request_id);
 
@@ -47,7 +48,9 @@ namespace Runtime.API.Controllers.DMT.Lookup
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Lookup.FetchLanduseById(cookies, id, request_id);
 

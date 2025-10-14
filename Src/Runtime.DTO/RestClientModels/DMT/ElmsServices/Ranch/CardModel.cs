@@ -158,7 +158,20 @@ namespace Runtime.DTO.RestClientModels.DMT.ElmsServices.Ranch
         public List<object> Owners { get; set; }
     }
 
+
     public class RanchCardResponse
+    {
+        [JsonPropertyName("totalCount")]
+        public int TotalCount { get; set; }
+
+        [JsonPropertyName("items")]
+        public List<RanchCardModel> Items { get; set; }
+
+        [JsonPropertyName("urlArgs")]
+        public object UrlArgs { get; set; }
+    }
+
+    public class RanchCardModel
     {
         [JsonPropertyName("application")]
         public RanchCardApplication Application { get; set; }
@@ -185,7 +198,7 @@ namespace Runtime.DTO.RestClientModels.DMT.ElmsServices.Ranch
         public int? DaysRemaining { get; set; }
 
         [JsonPropertyName("highestPriorityOwnerId")]
-        public int? HighestPriorityOwnerId { get; set; }
+        public string HighestPriorityOwnerId { get; set; }
 
         [JsonPropertyName("plot")]
         public RanchCardPlot Plot { get; set; }
