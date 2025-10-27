@@ -9,7 +9,7 @@ namespace Runtime.RestClient.Interfaces.DMT
     {
         Task<ErrorOr<DmtResponseWrapper<WfiDocumentAttachmentResponse>>> UploadFileAsync(List<Cookie> cookies, byte[] file, string paramName, string fileName, string token);
 
-        Task<ErrorOr<FileResult>> DownloadFileAsync(string token);
+        Task<ErrorOr<FileResult>> DownloadFileAsync(List<Cookie> cookies, string token);
 
         Task<ErrorOr<DmtResponseWrapper<WfiDocumentAttachmentResponse>>> DeleteFileAsync(List<Cookie> cookies, string token);
     }

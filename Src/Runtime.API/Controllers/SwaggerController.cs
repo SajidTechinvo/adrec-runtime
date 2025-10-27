@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels;
 using Runtime.RestClient.Interfaces.Unit;
 
@@ -106,7 +107,7 @@ namespace Runtime.API.Controllers
         [ProducesResponseType(typeof(List<EndpointInfoResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetSwagger()
         {
-            var json = await _rest.Swagger.GetSwaggerJson("http://adrec-runtime.processclerk.com/swagger/v1/swagger.json");
+            var json = await _rest.Swagger.GetSwaggerJson(AppSettingHelper.GetSwaggerURL());
 
             var swagger = JObject.Parse(json);
             return Ok(ParseSwagger(swagger));

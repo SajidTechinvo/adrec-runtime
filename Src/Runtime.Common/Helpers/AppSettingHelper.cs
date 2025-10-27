@@ -131,6 +131,8 @@ namespace Runtime.Common.Helpers
 
         public static bool UseRedis() => bool.Parse(GetSettingValue("CustomSettings", "UseRedis"));
 
+        public static string GetSwaggerURL() => GetSettingValue("CustomSettings", "SwaggerURL");
+
         #endregion Custom Settings
 
         #region Connection Strings

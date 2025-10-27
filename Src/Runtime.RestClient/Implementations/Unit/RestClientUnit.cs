@@ -1,5 +1,4 @@
-﻿using ADREC.RestClient.Implementations.DMT;
-using ADREC.RestClient.Implementations.DMT.Common;
+﻿using ADREC.RestClient.Implementations.DMT.Common;
 using ADREC.RestClient.Implementations.DMT.ElmsDecree;
 using ADREC.RestClient.Implementations.DMT.ElmsPayment;
 using ADREC.RestClient.Implementations.DMT.ElmsServices;
@@ -33,6 +32,7 @@ using ADREC.RestClient.Interfaces.DMT.Users;
 using ADREC.RestClient.Interfaces.Factory;
 using Microsoft.Extensions.Options;
 using Runtime.Common.Settings;
+using Runtime.RestClient.Implementations.DMT;
 using Runtime.RestClient.Implementations.DMT.Common;
 using Runtime.RestClient.Implementations.DMT.Documents;
 using Runtime.RestClient.Implementations.DMT.ElmsServices;
@@ -48,7 +48,9 @@ using Runtime.RestClient.Implementations.DMT.ElmsServices.TenancyAgreementReplac
 using Runtime.RestClient.Implementations.DMT.ElmsUnits;
 using Runtime.RestClient.Implementations.DMT.Mortgage;
 using Runtime.RestClient.Implementations.DMT.Owners;
+using Runtime.RestClient.Implementations.DMT.Plots;
 using Runtime.RestClient.Implementations.DMT.Profiles;
+using Runtime.RestClient.Implementations.DMT.Users.Inbox;
 using Runtime.RestClient.Interfaces;
 using Runtime.RestClient.Interfaces.DMT;
 using Runtime.RestClient.Interfaces.DMT.Common;
@@ -87,10 +89,10 @@ namespace Runtime.RestClient.Implementations.Unit
         private IElmsPaymentClient _payment;
         private IElmsTenancyClient _tenancy;
         private IEmployeeClient _employee;
-        private IFetchClient _fetch;
         private IDatastoreClient _datastore;
         private IPageInfoClient _pageInfo;
         private IFileClient _file;
+        private IDocumentClient _document;
         private IImportPlotClient _importPlot;
         private IInboxClient _inbox;
         private IIncreasePlotAreaClient _increasePlotArea;
@@ -130,7 +132,6 @@ namespace Runtime.RestClient.Implementations.Unit
 
         #region Properties
 
-        public IFetchClient Fetch => _fetch ??= new FetchClient(_clientFactory);
         public IDatastoreClient Datastore => _datastore ??= new DatastoreClient(_clientFactory);
         public IPageInfoClient PageInfo => _pageInfo ??= new PageInfoClient(_clientFactory);
         public ISwaggerClient Swagger => _swagger ??= new SwaggerClient(_clientFactory);
@@ -189,13 +190,29 @@ namespace Runtime.RestClient.Implementations.Unit
             {
                 if (env == "Production")
                 {
-                    _file = new FileClient(_options, _customFactory, _clientFactory);
+                    _file = new FileClient(_options, _customFactory);
                 }
                 else
                 {
                     _file = new FileMockClient();
                 }
                 return _file;
+            }
+        }
+
+        public IDocumentClient Document
+        {
+            get
+            {
+                if (env == "Production")
+                {
+                    _document = new DocumentClient(_options, _customFactory);
+                }
+                else
+                {
+                    throw new NotImplementedException();
+                }
+                return _document;
             }
         }
 

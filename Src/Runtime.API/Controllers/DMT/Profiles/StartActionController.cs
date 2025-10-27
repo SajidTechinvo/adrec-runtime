@@ -12,7 +12,6 @@ namespace Runtime.API.Controllers.DMT.Profiles
         #region Private Fields
 
         private readonly IRestClientUnit _rest = rest;
-        private readonly IRedisCacheService _redis = redis;
 
         #endregion Private Fields
 

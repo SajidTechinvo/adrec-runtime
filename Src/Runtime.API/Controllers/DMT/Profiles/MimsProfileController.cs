@@ -10,7 +10,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.Profiles
 {
     [Route("mims-profile")]
-    public class ProfileController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
+    public class ProfileController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
@@ -53,7 +53,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Profile.GetMimsProfile(cookies);
 

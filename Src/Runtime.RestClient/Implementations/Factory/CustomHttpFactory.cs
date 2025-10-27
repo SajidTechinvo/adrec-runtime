@@ -1,7 +1,7 @@
 ﻿using ADREC.RestClient.Interfaces.Factory;
 using System.Net;
 
-namespace ADREC.RestClient.Implementations.Factory
+namespace Runtime.RestClient.Implementations.Factory
 {
     internal class CustomHttpFactory : ICustomHttpFactory
     {

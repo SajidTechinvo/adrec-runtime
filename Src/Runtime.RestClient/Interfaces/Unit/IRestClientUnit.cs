@@ -16,6 +16,7 @@ namespace Runtime.RestClient.Interfaces.Unit
 {
     public interface IRestClientUnit
     {
+        IDocumentClient Document { get; }
         IAllowLandTradingClient AllowLandTrading { get; }
         IApplicationClient Application { get; }
         IAuthClient Auth { get; }
@@ -31,7 +32,6 @@ namespace Runtime.RestClient.Interfaces.Unit
         IElmsTenancyClient Tenancy { get; }
         IElmsDecreeClient Decree { get; }
         IEmployeeClient Employee { get; }
-        IFetchClient Fetch { get; }
         IDatastoreClient Datastore { get; }
         IPageInfoClient PageInfo { get; }
         IFileClient File { get; }

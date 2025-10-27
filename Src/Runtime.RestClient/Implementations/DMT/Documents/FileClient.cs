@@ -1,21 +1,23 @@
 ﻿using ADREC.RestClient.Interfaces.Factory;
 using ErrorOr;
+using Runtime.Common.Errors;
+using Runtime.Common.Errors.Exceptions;
 using Runtime.Common.Settings;
-using Runtime.RestClient.Implementations.Factory;
 using Runtime.DTO.RestClientModels.Common;
 using Runtime.DTO.RestClientModels.DMT.ElmsServices.Common;
+using Runtime.RestClient.Implementations.Factory;
 using Runtime.RestClient.Interfaces.DMT;
 using System.Net;
 using System.Text.Json;
 
 namespace Runtime.RestClient.Implementations.DMT.Documents
 {
-    internal class FileClient(DmtSettings settings, ICustomHttpFactory httpFactory, IHttpClientFactory clientFactory) : HttpBase(settings, httpFactory), IFileClient
+    internal class FileClient(DmtSettings settings, ICustomHttpFactory httpFactory) : HttpBase(settings, httpFactory), IFileClient
     {
         #region Private Fields
 
         private readonly DmtSettings options = settings;
-        private readonly IHttpClientFactory _client = clientFactory;
+        private readonly ICustomHttpFactory _httpFactory = httpFactory;
 
         #endregion Private Fields
 
@@ -31,24 +33,40 @@ namespace Runtime.RestClient.Implementations.DMT.Documents
             return await Post<DmtResponseWrapper<WfiDocumentAttachmentResponse>, object>(cookies, $"{options.BaseUrl}/api/document/delete?token={token}", new { });
         }
 
-        public async Task<ErrorOr<FileResult>> DownloadFileAsync(string token)
+        public async Task<ErrorOr<FileResult>> DownloadFileAsync(List<Cookie> cookies, string token)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, $"{options.BaseUrl}/api/document/download?token={token}");
-            var client = _client.CreateClient();
+            var client = _httpFactory.CreateWithCookies(cookies, new Uri(options.BaseUrl));
 
-            var response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
+            HttpResponseMessage response;
+            try
             {
-                return new FileResult()
+
+
+                response = await client.GetAsync($"{options.BaseUrl}/api/document/download?token={token}");
+                if (response.IsSuccessStatusCode)
                 {
-                    FileName = response.Content.Headers.ContentDisposition?.FileName?.Trim('"'),
-                    Stream = await response.Content.ReadAsStreamAsync(),
-                };
+                    return new FileResult()
+                    {
+                        FileName = response.Content.Headers.ContentDisposition?.FileName?.Trim('"'),
+                        Stream = await response.Content.ReadAsStreamAsync(),
+                    };
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+
+                    return response.StatusCode switch
+                    {
+                        HttpStatusCode.BadRequest => Errors.BadRequest(errorContent),
+                        HttpStatusCode.MethodNotAllowed => Errors.MethodNotAllowed(),
+                        HttpStatusCode.NotFound => Errors.NotFoundAPI(errorContent),
+                        _ => Error.Failure("Unknown Error", errorContent),
+                    };
+                }
             }
-            else
+            catch (HttpRequestException ex)
             {
-                throw new Exception("An error occured while downloading the file");
+                throw new GeneralException("Network error occurred during GET request.", ex);
             }
         }
 
@@ -89,7 +107,7 @@ namespace Runtime.RestClient.Implementations.DMT.Documents
             return JsonSerializer.Deserialize<DmtResponseWrapper<WfiDocumentAttachmentResponse>>(content);
         }
 
-        public Task<ErrorOr<FileResult>> DownloadFileAsync(string token)
+        public Task<ErrorOr<FileResult>> DownloadFileAsync(List<Cookie> cookies, string token)
         {
             throw new NotImplementedException();
         }

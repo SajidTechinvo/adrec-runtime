@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
@@ -14,7 +13,6 @@ namespace Runtime.API.Controllers.DMT
         #region Private Fields
 
         private readonly IRestClientUnit _rest = rest;
-        private readonly IRedisCacheService _redis = redis;
 
         #endregion Private Fields
 
@@ -38,11 +36,18 @@ namespace Runtime.API.Controllers.DMT
             return result.Match(Ok, Problem);
         }
 
-        [AllowAnonymous]
         [HttpGet("download")]
         public async Task<IActionResult> Download(string args)
         {
-            var result = await _rest.File.DownloadFileAsync(args);
+
+            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
+
+
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
+
+            var result = await _rest.File.DownloadFileAsync(cookies, args);
 
             return result.Match(data => File(data.Stream, MimeTypeMap.GetMimeType(Path.GetExtension(data.FileName))), Problem);
         }

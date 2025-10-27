@@ -32,7 +32,7 @@ namespace Runtime.DTO.RestClientModels.DMT.ElmsTenancy
         public string Comments { get; set; }
 
         [JsonPropertyName("approveByUserId")]
-        public int ApproveByUserId { get; set; }
+        public int? ApproveByUserId { get; set; }
 
         [JsonPropertyName("approveDate")]
         public DateTime? ApproveDate { get; set; }

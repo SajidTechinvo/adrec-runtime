@@ -97,7 +97,7 @@ namespace Runtime.RestClient.Implementations.Factory
             }
             catch (Exception ex)
             {
-                throw new GeneralException(ex.Message);
+                throw new GeneralException("An error occurred during GET request. See Inner exception for details", ex);
             }
         }
 

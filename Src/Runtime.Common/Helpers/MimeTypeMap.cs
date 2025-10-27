@@ -712,6 +712,7 @@
 
         public static string GetMimeType(string extension)
         {
+
             ArgumentNullException.ThrowIfNull(extension);
 
             if (!extension.StartsWith(Dot))

@@ -4,17 +4,15 @@ using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels.DMTModel.ElmsTenancy;
 using Runtime.RestClient.Interfaces.Unit;
-using System.Net;
 
 namespace Runtime.API.Controllers.DMT
 {
     [Route("tenancy")]
-    public class TenancyController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
+    public class TenancyController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
         private readonly IRestClientUnit _rest = rest;
-        private readonly IRedisCacheService _redis = redis;
 
         #endregion Private Fields
 
@@ -29,7 +27,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Tenancy.CalculateRentFees(cookies, args, model);
 
@@ -45,7 +45,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Tenancy.FetchLandLateRentPayments(cookies, args, id);
 
@@ -57,7 +59,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Tenancy.FetchTenancyContractList(cookies, args, plotId, showAll, tenancyContractCategory);
 
@@ -69,7 +73,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Tenancy.FetchTenancyContractDetails(cookies, args, id);
 
@@ -83,7 +89,9 @@ namespace Runtime.API.Controllers.DMT
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
 
             var result = await _rest.Tenancy.SearchTenancyContracts(cookies, args, contractNumber, contractType,
                                                                     matchTypeId, pageNumber, pageSize, startDate);

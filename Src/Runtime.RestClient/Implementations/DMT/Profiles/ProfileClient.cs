@@ -63,15 +63,14 @@ namespace Runtime.RestClient.Implementations.DMT.Profiles
                 var cookie = AreCookiesEqual(newCookie, existingCookies);
                 if (cookie != null) merged.Add(cookie);
             }
-            foreach (var oldCookie in existingCookies)
-            {
-                if (!merged.Any(c =>
+            foreach (var oldCookie in existingCookies.Where(oldCookie => !merged.Any(c =>
                     c.Name == oldCookie.Name &&
                     c.Domain == oldCookie.Domain &&
-                    c.Path == oldCookie.Path))
-                {
-                    merged.Add(oldCookie);
-                }
+                    c.Path == oldCookie.Path)))
+            {
+
+                merged.Add(oldCookie);
+
             }
 
             return merged;

@@ -4,7 +4,7 @@ using Runtime.DTO.RestClientModels.DMT;
 using System.Net;
 using System.Text.Json;
 
-namespace ADREC.RestClient.Implementations.DMT
+namespace Runtime.RestClient.Implementations.DMT
 {
     internal class NewsClient : INewsClient
     {

@@ -1,8 +1,8 @@
-﻿using ADREC.RestClient.Implementations.Factory;
-using ADREC.RestClient.Interfaces.Factory;
+﻿using ADREC.RestClient.Interfaces.Factory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Runtime.Common.Settings;
+using Runtime.RestClient.Implementations.Factory;
 using Runtime.RestClient.Implementations.Unit;
 using Runtime.RestClient.Interfaces.Unit;
 

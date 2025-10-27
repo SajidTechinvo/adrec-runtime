@@ -4,10 +4,10 @@ using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
 using Runtime.RestClient.Interfaces.Unit;
 
-namespace Runtime.API.Controllers.DMT.Lookup
+namespace Runtime.API.Controllers.DMT
 {
-    [Route("roads")]
-    public class RoadController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
+    [Route("document")]
+    public class DocumentController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
@@ -21,13 +21,8 @@ namespace Runtime.API.Controllers.DMT.Lookup
 
         #region GET
 
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="id">Community ID</param>
-        /// <returns></returns>
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetRoads(long id)
+        [HttpGet("thumbnail")]
+        public async Task<IActionResult> GetThumbnail(string args)
         {
             var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
@@ -35,9 +30,17 @@ namespace Runtime.API.Controllers.DMT.Lookup
 
             var cookies = await GetCookies(token, applicationName);
 
-            var result = await _rest.Lookup.SearchRoads(cookies, id);
+            var result = await _rest.Document.DownloadFileAsync(cookies, args);
 
-            return result.Match(data => Ok(data.Result), Problem);
+            if (result.IsError)
+                return Problem(result.Errors);
+
+            var data = result.Value;
+
+            if (string.IsNullOrWhiteSpace(data.FileName))
+                data.FileName = "DefaultPlotProfileMap.png";
+
+            return File(data.Stream, MimeTypeMap.GetMimeType(Path.GetExtension(data.FileName)));
         }
 
         #endregion GET

@@ -1,10 +1,11 @@
 ﻿using ADREC.DTO.RestClientModels.DMT.Users;
-using ADREC.RestClient.Interfaces.DMT.Users;
+using ErrorOr;
 using Runtime.DTO.RestClientModels.Common;
+using Runtime.RestClient.Interfaces.DMT.Users;
 using System.Net;
 using System.Text.Json;
 
-namespace ADREC.RestClient.Implementations.DMT.Users.Inbox
+namespace Runtime.RestClient.Implementations.DMT.Users.Inbox
 {
     internal class InboxMockClient : IInboxClient
     {
@@ -28,7 +29,7 @@ namespace ADREC.RestClient.Implementations.DMT.Users.Inbox
 
         #region Methods
 
-        public async Task<DmtResponseWrapper<BackOfficeInboxResponse>> GetBackOfficeDrafts(
+        public async Task<ErrorOr<DmtResponseWrapper<BackOfficeInboxResponse>>> GetBackOfficeDrafts(
             List<Cookie> cookies, int pageSize, int pageNumber, string applicationNumber, string referenceNumber,
             string districtId, string communityId, string workflowId, string workflowStepId, string workflowStatusId,
             string workflowStepTypeId, string nationalNumber, string tradeLicenseNumber, DateTime startDate,
@@ -38,7 +39,7 @@ namespace ADREC.RestClient.Implementations.DMT.Users.Inbox
             return JsonSerializer.Deserialize<DmtResponseWrapper<BackOfficeInboxResponse>>(content);
         }
 
-        public async Task<DmtResponseWrapper<BackOfficeInboxResponse>> GetBackOfficeInbox(
+        public async Task<ErrorOr<DmtResponseWrapper<BackOfficeInboxResponse>>> GetBackOfficeInbox(
            List<Cookie> cookies, int pageSize, int pageNumber, string applicationNumber, string referenceNumber,
            string districtId, string communityId, string workflowId, string workflowStepId, string workflowStatusId,
            string workflowStepTypeId, string nationalNumber, string tradeLicenseNumber, DateTime startDate,
