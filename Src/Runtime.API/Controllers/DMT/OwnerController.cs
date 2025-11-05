@@ -3,6 +3,7 @@ using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
 using Runtime.Common.Lookups;
+using Runtime.DTO.ApiModels.DMTModel;
 using Runtime.RestClient.Interfaces.Unit;
 
 namespace Runtime.API.Controllers.DMT
@@ -19,6 +20,24 @@ namespace Runtime.API.Controllers.DMT
         #region Methods
 
         #region End Points
+
+        #region POST
+
+        [HttpPost("contact")]
+        public async Task<IActionResult> EditContact(EditContactRequest model)
+        {
+            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
+
+            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+
+            var cookies = await GetCookies(token, applicationName);
+
+            var result = await _rest.Owner.EditContact(cookies, model);
+
+            return result.Match(Ok, Problem);
+        }
+
+        #endregion POST
 
         #region GET
 

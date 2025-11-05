@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ADREC.DTO.ApiModels.DMTModel.ElmsServices
+namespace Runtime.DTO.ApiModels.DMTModel.ElmsServices
 {
     public class StartImportPlotRequest
     {

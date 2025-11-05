@@ -2,12 +2,12 @@
 using ADREC.RestClient.Interfaces.Factory;
 using ErrorOr;
 using Runtime.Common.Settings;
-using Runtime.RestClient.Implementations.Factory;
 using Runtime.DTO.RestClientModels.Common;
+using Runtime.RestClient.Implementations.Factory;
 using Runtime.RestClient.Interfaces.DMT.Users;
 using System.Net;
 
-namespace ADREC.RestClient.Implementations.DMT.Users
+namespace Runtime.RestClient.Implementations.DMT.Users
 {
     internal class EmployeeClient(DmtSettings settings, ICustomHttpFactory httpFactory) : HttpBase(settings, httpFactory), IEmployeeClient
     {

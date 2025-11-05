@@ -1,10 +1,11 @@
 ﻿using ADREC.DTO.RestClientModels.DMT.Owners;
 using ErrorOr;
+using Runtime.DTO.ApiModels.DMTModel;
 using Runtime.DTO.RestClientModels.Common;
 using Runtime.DTO.RestClientModels.DMT.Owners;
 using System.Net;
 
-namespace ADREC.RestClient.Interfaces.DMT.Common
+namespace Runtime.RestClient.Interfaces.DMT.Common
 {
     public interface IOwnerClient
     {
@@ -22,5 +23,7 @@ namespace ADREC.RestClient.Interfaces.DMT.Common
         Task<ErrorOr<DmtResponseWrapper<OwnerPlotResponse>>> OwnerPlots(List<Cookie> cookies, string args);
 
         Task<ErrorOr<DmtResponseWrapper<PlotWithShareResponse>>> GetOwnerProfilePlotsWithShares(List<Cookie> cookies, string args, int id);
+
+        Task<ErrorOr<DmtResponseWrapper<EditContactResponse>>> EditContact(List<Cookie> cookies, EditContactRequest model);
     }
 }

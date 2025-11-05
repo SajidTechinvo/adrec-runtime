@@ -1,11 +1,12 @@
 ﻿using ADREC.DTO.RestClientModels.DMT.Owners;
-using ADREC.RestClient.Interfaces.DMT.Common;
 using ADREC.RestClient.Interfaces.Factory;
 using ErrorOr;
 using Runtime.Common.Settings;
-using Runtime.RestClient.Implementations.Factory;
+using Runtime.DTO.ApiModels.DMTModel;
 using Runtime.DTO.RestClientModels.Common;
 using Runtime.DTO.RestClientModels.DMT.Owners;
+using Runtime.RestClient.Implementations.Factory;
+using Runtime.RestClient.Interfaces.DMT.Common;
 using System.Net;
 
 namespace Runtime.RestClient.Implementations.DMT.Owners
@@ -73,6 +74,11 @@ namespace Runtime.RestClient.Implementations.DMT.Owners
         public async Task<ErrorOr<DmtResponseWrapper<List<PlotOwnerResponse>>>> SearchAuthorizedOwners(List<Cookie> cookies, string args)
         {
             return await Post<DmtResponseWrapper<List<PlotOwnerResponse>>, object>(cookies, $"{_settings.BaseUrl}/api/ElmsOwner/SearchAuthorizedOwners?args={args}", new { });
+        }
+
+        public async Task<ErrorOr<DmtResponseWrapper<EditContactResponse>>> EditContact(List<Cookie> cookies, EditContactRequest model)
+        {
+            return await Post<DmtResponseWrapper<EditContactResponse>, EditContactRequest>(cookies, $"{_settings.BaseUrl}/api/elmsOwner/EditContactRequest", model);
         }
 
         #endregion Methods

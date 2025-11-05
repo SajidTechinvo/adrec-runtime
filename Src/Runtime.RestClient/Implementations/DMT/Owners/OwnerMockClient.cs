@@ -1,12 +1,13 @@
 ﻿using ADREC.DTO.RestClientModels.DMT.Owners;
-using ADREC.RestClient.Interfaces.DMT.Common;
 using ErrorOr;
+using Runtime.DTO.ApiModels.DMTModel;
 using Runtime.DTO.RestClientModels.Common;
 using Runtime.DTO.RestClientModels.DMT.Owners;
+using Runtime.RestClient.Interfaces.DMT.Common;
 using System.Net;
 using System.Text.Json;
 
-namespace ADREC.RestClient.Implementations.DMT.Owners
+namespace Runtime.RestClient.Implementations.DMT.Owners
 {
     internal class OwnerMockClient : IOwnerClient
     {
@@ -63,6 +64,12 @@ namespace ADREC.RestClient.Implementations.DMT.Owners
         {
             var content = await GetFileContent("PlotWithShare.json");
             return JsonSerializer.Deserialize<DmtResponseWrapper<PlotWithShareResponse>>(content);
+        }
+
+        public async Task<ErrorOr<DmtResponseWrapper<EditContactResponse>>> EditContact(List<Cookie> cookies, EditContactRequest model)
+        {
+            var content = await GetFileContent("EditContact.json");
+            return JsonSerializer.Deserialize<DmtResponseWrapper<EditContactResponse>>(content);
         }
 
         #endregion Methods

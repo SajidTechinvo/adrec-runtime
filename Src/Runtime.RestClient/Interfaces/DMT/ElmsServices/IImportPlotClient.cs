@@ -1,10 +1,10 @@
-﻿using ADREC.DTO.ApiModels.DMTModel.ElmsServices;
-using ADREC.DTO.RestClientModels.DMT.ElmsServices.Common;
+﻿using ADREC.DTO.RestClientModels.DMT.ElmsServices.Common;
 using ErrorOr;
 using Runtime.DTO.RestClientModels.DMT.Plots;
 using Runtime.DTO.ApiModels.DMTModel.Common;
 using Runtime.DTO.RestClientModels.Common;
 using System.Net;
+using Runtime.DTO.ApiModels.DMTModel.ElmsServices;
 
 namespace Runtime.RestClient.Interfaces.DMT.ElmsServices
 {
