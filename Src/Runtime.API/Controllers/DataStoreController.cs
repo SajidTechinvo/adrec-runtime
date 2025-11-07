@@ -6,7 +6,6 @@ using Runtime.RestClient.Interfaces.Unit;
 
 namespace Runtime.API.Controllers
 {
-
     [Route("api/data-store")]
     public class DataStoreController(IRestClientUnit rest, ILogger logger) : ApiController(logger)
     {
