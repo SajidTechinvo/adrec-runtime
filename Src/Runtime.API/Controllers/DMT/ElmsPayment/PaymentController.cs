@@ -25,11 +25,7 @@ namespace Runtime.API.Controllers.DMT.ElmsPayment
         [HttpPost("print-payment-slip")]
         public async Task<IActionResult> PrintPaymentSlip(string args, PrintPaymentSlipRequest model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Payment.PrintPaymentSlip(cookies, args, model);
 
@@ -39,11 +35,7 @@ namespace Runtime.API.Controllers.DMT.ElmsPayment
         [HttpPost("override-payment")]
         public async Task<IActionResult> OverridePayment(string args, OverridePaymentRequest model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Payment.OverridePayment(cookies, args, model);
 
@@ -53,11 +45,7 @@ namespace Runtime.API.Controllers.DMT.ElmsPayment
         [HttpPost("verify-payment")]
         public async Task<IActionResult> VerifyPayment(string args, VerifyPaymentRequest model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Payment.VerifyPayment(cookies, args, model);
 

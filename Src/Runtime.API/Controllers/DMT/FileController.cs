@@ -25,11 +25,7 @@ namespace Runtime.API.Controllers.DMT
         [HttpPost("upload")]
         public async Task<IActionResult> Upload(string args, UploadFileRequest model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.File.UploadFileAsync(cookies, Convert.FromBase64String(model.File.FileContent), model.Name, model.File.FileName, args);
 
@@ -39,13 +35,7 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("download")]
         public async Task<IActionResult> Download(string args)
         {
-
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.File.DownloadFileAsync(cookies, args);
 
@@ -55,11 +45,7 @@ namespace Runtime.API.Controllers.DMT
         [HttpPost("delete")]
         public async Task<IActionResult> Delete(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.File.DeleteFileAsync(cookies, args);
 

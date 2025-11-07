@@ -147,19 +147,9 @@ namespace Runtime.API.Controllers.Base
             return Ok(action(data));
         }
 
-        protected async Task<List<Cookie>> GetCookies(string token, string applicationName)
+        protected async Task<List<Cookie>> GetCookies(string token)
         {
-            switch (applicationName)
-            {
-                case "Runtime":
-                    return await _redis.GetCacheValueAsync<List<Cookie>>(token) ?? throw new NotFoundException("Cookies not found in cache.");
-
-
-                case "ServiceBuilder":
-                    var runTimeToken = await _redis.GetCacheValueAsync<string>(token) ?? throw new NotFoundException("Token not found in cache.");
-                    return await GetCookies(runTimeToken, "Runtime");
-            }
-            throw new GeneralException("An error occurred while processing your request.");
+            return await _redis.GetCacheValueAsync<List<Cookie>>(token) ?? throw new NotFoundException("Cookies not found in cache.");
         }
 
         #endregion Methods

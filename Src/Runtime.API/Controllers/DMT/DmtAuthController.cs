@@ -42,9 +42,6 @@ namespace Runtime.API.Controllers.DMT
                 token = _jwt.GenerateToken(model.Email, TimeSpan.FromHours(8));
                 await _redis.SetCacheValueAsync(token, cookies);
 
-                if (!string.IsNullOrWhiteSpace(model.Token))
-                    await _redis.SetCacheValueAsync(model.Token, token);
-
                 return Ok(token);
             }
 
@@ -63,10 +60,6 @@ namespace Runtime.API.Controllers.DMT
 
             token = _jwt.GenerateToken(model.Email, expiry - DateTime.UtcNow);
             await _redis.SetCacheValueAsync(token, cookies);
-
-            if (!string.IsNullOrWhiteSpace(model.Token))
-                await _redis.SetCacheValueAsync(model.Token, token);
-
 
             return Ok(token);
         }

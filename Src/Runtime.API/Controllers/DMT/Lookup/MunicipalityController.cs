@@ -24,11 +24,7 @@ namespace Runtime.API.Controllers.DMT.Lookup
         [HttpGet("")]
         public async Task<IActionResult> GetMunicipalities(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Lookup.SearchMunicipalities(cookies, args);
 

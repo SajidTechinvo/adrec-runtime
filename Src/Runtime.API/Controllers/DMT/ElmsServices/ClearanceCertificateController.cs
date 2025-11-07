@@ -26,11 +26,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("start")]
         public async Task<IActionResult> StartBackOfficeWorkflow(string args, StartClearanceCertificate model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.ClearanceCertificate.StartWorkflow(cookies, args, model);
 
@@ -40,11 +36,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("register-submit")]
         public async Task<IActionResult> RegisterSubmit(string args, RegisterClearanceCertificate model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.ClearanceCertificate.RegisterSubmit(cookies, args, model);
 
@@ -54,11 +46,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("register-cancel")]
         public async Task<IActionResult> RegisterCancel(string args, BackModel model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.ClearanceCertificate.RegisterCancel(cookies, args, model);
 
@@ -68,11 +56,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("approval-submit")]
         public async Task<IActionResult> ApprovalSubmit(string args, CommentModel model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.ClearanceCertificate.ApprovalSubmit(cookies, args, model);
 
@@ -82,11 +66,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("approval-reject")]
         public async Task<IActionResult> ApprovalReject(string args, BackModel model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.ClearanceCertificate.ApprovalReject(cookies, args, model);
 
@@ -96,11 +76,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("print")]
         public async Task<IActionResult> Print(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.ClearanceCertificate.Print(cookies, args);
 
@@ -110,11 +86,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("print-submit")]
         public async Task<IActionResult> Print(string args, CommentModel model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.ClearanceCertificate.PrintSubmit(cookies, args, model);
 
@@ -128,11 +100,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpGet("step-info")]
         public async Task<IActionResult> GetStepInfo(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.ClearanceCertificate.GetStepInfo(cookies, args);
 

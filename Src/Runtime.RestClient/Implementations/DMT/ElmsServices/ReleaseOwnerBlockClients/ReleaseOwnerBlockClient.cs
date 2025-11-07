@@ -3,14 +3,14 @@ using ADREC.RestClient.Interfaces.DMT.ElmsServices;
 using ADREC.RestClient.Interfaces.Factory;
 using ErrorOr;
 using Runtime.Common.Settings;
-using Runtime.RestClient.Implementations.Factory;
 using Runtime.DTO.ApiModels.DMTModel.Common;
 using Runtime.DTO.ApiModels.DMTModel.ElmsServices;
 using Runtime.DTO.RestClientModels.Common;
+using Runtime.RestClient.Implementations.Factory;
 using System.Net;
 using System.Text.Json;
 
-namespace ADREC.RestClient.Implementations.DMT.ElmsServices.ReleaseOwnerBlockClients
+namespace Runtime.RestClient.Implementations.DMT.ElmsServices.ReleaseOwnerBlockClients
 {
     internal class ReleaseOwnerBlockClient(DmtSettings settings, ICustomHttpFactory httpFactory) : HttpBase(settings, httpFactory), IReleaseOwnerBlockClient
     {

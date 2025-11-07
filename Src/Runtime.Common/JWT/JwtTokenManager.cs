@@ -26,8 +26,7 @@ namespace Runtime.Common.JWT
             {
                 Subject = new ClaimsIdentity(
                 [
-                    new Claim(ClaimTypes.Email,email),
-                    new Claim("Application","Runtime")
+                    new Claim(ClaimTypes.Email,email)
                 ]),
                 Expires = DateTime.UtcNow.Add(expiry),
                 SigningCredentials = new SigningCredentials(credentials, SecurityAlgorithms.HmacSha256)

@@ -26,11 +26,7 @@ namespace Runtime.API.Controllers.DMT
         [HttpPost("contact")]
         public async Task<IActionResult> EditContact(EditContactRequest model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Owner.EditContact(cookies, model);
 
@@ -49,11 +45,7 @@ namespace Runtime.API.Controllers.DMT
         {
             string matchType = ((int)matchTypeId).ToString();
 
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Owner.GetOwners(cookies, args, requestId, ownerName, tribe, nationalNumber,
                                                      nationalityId, familyBookNumber, cityNumber, passPortNumber,
@@ -70,11 +62,7 @@ namespace Runtime.API.Controllers.DMT
         {
             string matchType = ((int)matchTypeId).ToString();
 
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Owner.GetCompanies(cookies, args, chamberOfCommerceNo, matchType, ownerName, pageNumber,
                                                                  pageSize, requestId, totalCount, tradeLicense);
@@ -85,11 +73,7 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("authorized")]
         public async Task<IActionResult> AuthorizedOwners(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Owner.SearchAuthorizedOwners(cookies, args);
 
@@ -99,11 +83,7 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("plots")]
         public async Task<IActionResult> GetOwnerProfilePlots(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Owner.OwnerPlots(cookies, args);
 
@@ -113,11 +93,7 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("plots-with-shares/{id}")]
         public async Task<IActionResult> GetOwnerProfilePlotsWithShares(string args, int id)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Owner.GetOwnerProfilePlotsWithShares(cookies, args, id);
 

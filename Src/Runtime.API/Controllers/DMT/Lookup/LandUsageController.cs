@@ -31,11 +31,7 @@ namespace Runtime.API.Controllers.DMT.Lookup
         [HttpGet("{id}")]
         public async Task<IActionResult> GetLandUsage(long id, int? request_id)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Lookup.SearchLandUsage(cookies, id, request_id);
 
@@ -45,11 +41,7 @@ namespace Runtime.API.Controllers.DMT.Lookup
         [HttpGet("by-id/{id}")]
         public async Task<IActionResult> FetchLanduseById(long id, int? request_id)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Lookup.FetchLanduseById(cookies, id, request_id);
 

@@ -25,11 +25,7 @@ namespace Runtime.API.Controllers.DMT.Plots
         [HttpGet("detail/{id}")]
         public async Task<IActionResult> GetPlotDetail(long id)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Plot.GetPlotDetails(cookies, id);
 
@@ -39,23 +35,18 @@ namespace Runtime.API.Controllers.DMT.Plots
         [HttpGet("owner/{id}")]
         public async Task<IActionResult> GetPlotOwner(long id)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
+            var result = await _rest.Plot.GetPlotOwners(cookies, id);
 
-            var cookies = await GetCookies(token, applicationName);
+            return result.Match(data => Ok(data.Result), Problem);
 
-            return Ok(await _rest.Plot.GetPlotOwners(cookies, id));
         }
 
         [HttpGet("profile")]
         public async Task<IActionResult> FetchPlotProfile(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Plot.FetchPlotProfile(cookies, args);
 
@@ -65,11 +56,7 @@ namespace Runtime.API.Controllers.DMT.Plots
         [HttpGet("profile-services")]
         public async Task<IActionResult> FetchPlotProfileServices(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Plot.FetchPlotProfileServices(cookies, args);
 
@@ -83,11 +70,7 @@ namespace Runtime.API.Controllers.DMT.Plots
             int pageSize, string searchPlotFlags, string searchOwnerFlags, string ownerId, int pageNumber,
             int totalCount)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Plot.SearchPlots(cookies, requestId, municipality, landuseId, zone,
                             publicHouseNo, sector, roadId, plotNumber, plotFileNumber, matchTypeId.ToString(), pageSize,
@@ -99,11 +82,7 @@ namespace Runtime.API.Controllers.DMT.Plots
         [HttpGet("tenancy-contract/{id}")]
         public async Task<IActionResult> FetchPlotByTenancyContractId(string args, long id)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.Plot.FetchPlotByTenancyContractId(cookies, args, id);
 

@@ -25,11 +25,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("start")]
         public async Task<IActionResult> StartBackOfficeWorkflow(string args, StartTenancyAgreementFix model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.TenancyAgreementFix.StartWorkflow(cookies, args, model);
 
@@ -39,11 +35,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("register")]
         public async Task<IActionResult> RegisterWorkflow(string args, RegisterTenancyAgreementFix model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.TenancyAgreementFix.RegisterWorkflow(cookies, args, model);
 
@@ -53,11 +45,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("approval-submit")]
         public async Task<IActionResult> ApprovalSubmit(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.TenancyAgreementFix.ApprovalSubmit(cookies, args);
 
@@ -71,11 +59,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpGet("step-info")]
         public async Task<IActionResult> GetStepInfo(string args)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.TenancyAgreementFix.GetStepInfo(cookies, args);
 
@@ -85,11 +69,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpGet("tenancy-contract/{id}")]
         public async Task<IActionResult> FetchTenancyContractDetails(string args, long id)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.TenancyAgreementFix.FetchTenancyContractDetails(cookies, args, id);
 
@@ -99,11 +79,7 @@ namespace Runtime.API.Controllers.DMT.ElmsServices
         [HttpPost("amount")]
         public async Task<IActionResult> DataFixScreenFeeAmount(string args, bool isNewContract)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
-
-            var applicationName = User.Claims.First(f => f.Type == "Application").Value;
-
-            var cookies = await GetCookies(token, applicationName);
+            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
 
             var result = await _rest.TenancyAgreementFix.DataFixScreenFeeAmount(cookies, args, isNewContract);
 
