@@ -1,17 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Controllers.Base;
-using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels;
-using Runtime.RestClient.Interfaces.Unit;
+using Runtime.RestClient.Interfaces;
 
 namespace Runtime.API.Controllers
 {
     [Route("api/page_info")]
-    public class PageInformationController(IRestClientUnit rest, ILogger logger) : ApiController(logger)
+    public class PageInformationController(IAmazonClient aws, ILogger logger) : ApiController(logger)
     {
         #region Private Methods
 
-        private readonly IRestClientUnit _rest = rest;
+        private readonly IAmazonClient _aws = aws;
 
         #endregion Private Methods
 
@@ -25,12 +24,11 @@ namespace Runtime.API.Controllers
         [ProducesResponseType(typeof(TableResponse), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDatastore(string slug)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
 
-            var page = await _rest.PageInfo.GetPage(token, slug);
-            if (page.IsError) return Problem(page.Errors);
+            await _aws.ReadFileAsync("OneHubRanchAllocationService");
 
-            return Ok(page.Value);
+
+            return Ok();
         }
 
         #endregion GET
