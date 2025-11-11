@@ -1,0 +1,17 @@
+name: Mirror Repository
+
+on:
+  push:
+    branches:
+      - '**'  # Mirror on all branch pushes
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mirror Repository
+        run: |
+          git clone --mirror https://${{ secrets.MIRROR_TOKEN }}@github.com/${{ github.repository }}.git
+          cd $(basename ${{ github.repository }}.git)
+          git remote add mirror https://${{ secrets.MIRROR_TOKEN }}@github.com/GCG-Development/ADREC-RuntimeBackend.git
+          git push mirror --prune +refs/heads/*:refs/heads/* +refs/tags/*:refs/tags/*
