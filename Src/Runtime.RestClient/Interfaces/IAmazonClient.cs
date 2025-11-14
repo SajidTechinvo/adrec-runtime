@@ -2,6 +2,6 @@
 {
     public interface IAmazonClient
     {
-        Task ReadFileAsync(string fileName);
+        Task<string> ReadFileAsync(string fileName);
     }
 }

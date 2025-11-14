@@ -153,5 +153,11 @@ namespace Runtime.DTO.ApiModels.Common
         public int Code { get; set; }
     }
 
+    public class LogoutResponse
+    {
+        public string Message { get; set; }
+
+    }
+
     #endregion Response
 }

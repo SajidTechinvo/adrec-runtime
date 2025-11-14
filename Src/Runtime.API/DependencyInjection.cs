@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Runtime.API.Caching;
 using Runtime.Common;
 using Runtime.Common.Helpers;
@@ -35,15 +35,7 @@ namespace Runtime.API
                     Scheme = "Bearer",
                     Type = SecuritySchemeType.Http
                 });
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement{{
-                        new OpenApiSecurityScheme{
-                            Reference = new OpenApiReference{
-                                Id = "Bearer",
-                                Type = ReferenceType.SecurityScheme
-                            }
-                        },new List<string>()
-                    }
-                });
+                
                 // XML Doc
                 //string xmlDocFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 //string xmlDocFilePath = Path.Combine(AppContext.BaseDirectory, xmlDocFileName);

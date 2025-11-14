@@ -11,21 +11,27 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9" />
-		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-		<PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
-		<PackageReference Include="StackExchange.Redis" Version="2.8.31" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-		<PackageReference Include="Serilog.Settings.Configuration" Version="8.0.4" />
-		<PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
-		<PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+		<PackageReference Include="StackExchange.Redis" Version="2.9.32" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
+		<PackageReference Include="Serilog.Settings.Configuration" Version="9.0.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Runtime.Common\Runtime.Common.csproj" />
 		<ProjectReference Include="..\Runtime.DTO\Runtime.DTO.csproj" />
 		<ProjectReference Include="..\Runtime.RestClient\Runtime.RestClient.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="OneHubRanchAllocationService.js">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>

@@ -6,6 +6,15 @@ using Runtime.RestClient.Interfaces;
 
 namespace Runtime.RestClient.Implementations
 {
+
+    internal class MockAmazonClient : IAmazonClient
+    {
+        public Task<string> ReadFileAsync(string fileName)
+        {
+            return File.ReadAllTextAsync(fileName);
+        }
+    }
+
     internal class AmazonClient(IOptions<AmazonClientOptions> options) : IAmazonClient
     {
         #region Private Fields
@@ -14,7 +23,9 @@ namespace Runtime.RestClient.Implementations
 
         #endregion Private Fields
 
-        public async Task ReadFileAsync(string fileName)
+        #region Methods
+
+        public async Task<string> ReadFileAsync(string fileName)
         {
             var config = new AmazonS3Config
             {
@@ -38,7 +49,9 @@ namespace Runtime.RestClient.Implementations
             using var reader = new StreamReader(response.ResponseStream);
             var fileContent = await reader.ReadToEndAsync();
 
-            Console.WriteLine(fileContent);
+            return fileContent;
         }
+
+        #endregion Methods
     }
 }

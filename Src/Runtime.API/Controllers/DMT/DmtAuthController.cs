@@ -61,8 +61,31 @@ namespace Runtime.API.Controllers.DMT
             token = _jwt.GenerateToken(model.Email, expiry - DateTime.UtcNow);
             await _redis.SetCacheValueAsync(token, cookies);
 
-            return Ok(token);
+            Response.Cookies.Append("token", token, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.None,
+                Expires = DateTime.UtcNow.AddMinutes(30)
+            });
+
+            return Ok();
         }
+
+
+        [HttpPost("logout")]
+        [ProducesResponseType(200, Type = typeof(object))]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("token", new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.None
+            });
+
+            return Ok(new LogoutResponse() { Message = "Logged out successfully" });
+        }   
 
         #endregion POST
 

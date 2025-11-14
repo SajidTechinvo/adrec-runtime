@@ -21,7 +21,17 @@ namespace Runtime.RestClient
 
             services.AddScoped<IRestClientUnit, RestClientUnit>();
             services.AddTransient<ICustomHttpFactory, CustomHttpFactory>();
-            services.AddScoped<IAmazonClient, AmazonClient>();
+
+            var currentEnv = $"{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}";
+            if (currentEnv == "Production")
+            {
+                services.AddScoped<IAmazonClient, AmazonClient>();
+            }
+            else
+            {
+                services.AddScoped<IAmazonClient, MockAmazonClient>();
+            }
+
 
             return services;
         }
