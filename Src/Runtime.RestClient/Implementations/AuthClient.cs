@@ -1,7 +1,8 @@
-﻿using ADREC.RestClient.Interfaces;
-using ErrorOr;
+﻿using ErrorOr;
 using Runtime.Common.Errors;
 using Runtime.Common.Settings;
+using Runtime.DTO.ApiModels.Common;
+using Runtime.RestClient.Interfaces;
 using System.Net;
 using System.Text;
 using System.Text.Json;
@@ -10,6 +11,7 @@ namespace Runtime.RestClient.Implementations
 {
     internal class AuthClient(DmtSettings options) : IAuthClient
     {
+
         #region Methods
 
         public async Task<ErrorOr<List<Cookie>>> LoginAsync(string username, string password)
@@ -43,11 +45,21 @@ namespace Runtime.RestClient.Implementations
             }
         }
 
+
+        public Task<ErrorOr<UAEPassLoginResponse>> GetUAEPassUser(string code, string state)
+        {
+            throw new NotImplementedException();
+        }
         #endregion Methods
     }
 
     public class AuthMockClient : IAuthClient
     {
+        public Task<ErrorOr<UAEPassLoginResponse>> GetUAEPassUser(string code, string state)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<ErrorOr<List<Cookie>>> LoginAsync(string username, string password)
         {
             await Task.Delay(50); // optional delay to simulate network call

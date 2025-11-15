@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
-using Runtime.Common.Helpers;
 using Runtime.RestClient.Interfaces.Unit;
+using System.Security.Claims;
 
 namespace Runtime.API.Controllers.DMT.Lookup
 {
@@ -31,7 +31,9 @@ namespace Runtime.API.Controllers.DMT.Lookup
         [HttpGet("{id}")]
         public async Task<IActionResult> GetLandUsage(long id, int? request_id)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Lookup.SearchLandUsage(cookies, id, request_id);
 
@@ -41,7 +43,9 @@ namespace Runtime.API.Controllers.DMT.Lookup
         [HttpGet("by-id/{id}")]
         public async Task<IActionResult> FetchLanduseById(long id, int? request_id)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Lookup.FetchLanduseById(cookies, id, request_id);
 

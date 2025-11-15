@@ -40,9 +40,17 @@ namespace Runtime.API.Controllers.DMT
             if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != "Production")
             {
                 token = _jwt.GenerateToken(model.Email, TimeSpan.FromHours(8));
-                await _redis.SetCacheValueAsync(token, cookies);
+                await _redis.SetCacheValueAsync(model.Email, cookies);
 
-                return Ok(token);
+                Response.Cookies.Append("token", token, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.None,
+                    Expires = DateTime.UtcNow.AddMinutes(30)
+                });
+
+                return Ok();
             }
 
             var authCookie = cookies.FirstOrDefault(c => c.Name.Equals(".ASPXAUTH", StringComparison.OrdinalIgnoreCase)) ?? throw new NotFoundException(".ASPXAUTH cookie in the response.");
@@ -59,7 +67,7 @@ namespace Runtime.API.Controllers.DMT
             }
 
             token = _jwt.GenerateToken(model.Email, expiry - DateTime.UtcNow);
-            await _redis.SetCacheValueAsync(token, cookies);
+            await _redis.SetCacheValueAsync(model.Email, cookies);
 
             Response.Cookies.Append("token", token, new CookieOptions
             {
@@ -85,7 +93,16 @@ namespace Runtime.API.Controllers.DMT
             });
 
             return Ok(new LogoutResponse() { Message = "Logged out successfully" });
-        }   
+        }
+
+
+        [HttpPost("sso-login")]
+        [ProducesResponseType(200, Type = typeof(object))]
+        public IActionResult SSOLogin(SSOLoginRequest model)
+        {
+
+            return Ok();
+        }
 
         #endregion POST
 

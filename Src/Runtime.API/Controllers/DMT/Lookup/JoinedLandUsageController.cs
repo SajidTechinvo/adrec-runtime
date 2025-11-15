@@ -8,7 +8,7 @@ using System.Net;
 namespace Runtime.API.Controllers.DMT.Lookup
 {
     [Route("joined-land-usage")]
-    public class JoinedLandUsageController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
+    public class JoinedLandUsageController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 

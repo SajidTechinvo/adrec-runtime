@@ -28,10 +28,4 @@
 		<ProjectReference Include="..\Runtime.RestClient\Runtime.RestClient.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Update="OneHubRanchAllocationService.js">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	</ItemGroup>
-
 </Project>

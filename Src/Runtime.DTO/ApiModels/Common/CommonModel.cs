@@ -89,6 +89,13 @@ namespace Runtime.DTO.ApiModels.Common
         public string Phone { get; set; }
     }
 
+
+    public class SSOLoginRequest
+    {
+        public string Code { get; set; }
+        public string State { get; set; }
+    }
+
     #endregion Request
 
     #region Response
@@ -156,8 +163,51 @@ namespace Runtime.DTO.ApiModels.Common
     public class LogoutResponse
     {
         public string Message { get; set; }
-
     }
+
+    public class UAEPassLoginResponse
+    {
+        [JsonPropertyName("mobile")]
+        public string Mobile { get; set; }
+
+        [JsonPropertyName("customerNameE")]
+        public string CustomerNameE { get; set; }
+
+        [JsonPropertyName("customerNameA")]
+        public string CustomerNameA { get; set; }
+
+        [JsonPropertyName("idCardExpiryDate")]
+        public string IdCardExpiryDate { get; set; }
+
+        [JsonPropertyName("uaepassuuid")]
+        public string Uaepassuuid { get; set; }
+
+        [JsonPropertyName("email")]
+        public string Email { get; set; }
+
+        [JsonPropertyName("uuid")]
+        public string Uuid { get; set; }
+
+        [JsonPropertyName("nationalNumber")]
+        public string NationalNumber { get; set; }
+
+        [JsonPropertyName("userType")]
+        public string UserType { get; set; }
+
+        [JsonPropertyName("DeviceId")]
+        public string DeviceId { get; set; }
+
+        [JsonPropertyName("DeviceLang")]
+        public string DeviceLang { get; set; }
+
+        [JsonPropertyName("SourceSystem")]
+        public string SourceSystem { get; set; }
+
+        [JsonPropertyName("SourceSystemValue")]
+        public string SourceSystemValue { get; set; }
+    }
+
+
 
     #endregion Response
 }

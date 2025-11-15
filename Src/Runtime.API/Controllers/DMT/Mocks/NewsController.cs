@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
-using Runtime.Common.Helpers;
 using Runtime.RestClient.Interfaces.Unit;
 using System.Net;
+using System.Security.Claims;
 
 namespace Runtime.API.Controllers.DMT.Mocks
 {
     [Route("news")]
-    public class NewsController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis,logger)
+    public class NewsController(IRedisCacheService redis, ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
     {
         #region Private Fields
 
@@ -26,9 +26,9 @@ namespace Runtime.API.Controllers.DMT.Mocks
         [HttpGet("")]
         public async Task<IActionResult> GetMimsProfile()
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(email);
 
             return Ok(await _rest.News.GetNews(cookies));
         }

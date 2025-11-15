@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
-using Runtime.Common.Helpers;
 using Runtime.RestClient.Interfaces.Unit;
+using System.Security.Claims;
 
 namespace Runtime.API.Controllers.DMT.Profiles
 {
@@ -24,7 +24,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         [HttpGet("")]
         public async Task<IActionResult> GetStartAction()
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             return (await _rest.Profile.GetStartActionResponse(cookies)).Match(Ok, Problem);
         }
@@ -32,7 +34,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         [HttpGet("my-services")]
         public async Task<IActionResult> GetMyServices()
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             return (await _rest.Profile.GetMyServiceResponse(cookies)).Match(data => Ok(data.Result), Problem);
         }
@@ -40,7 +44,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         [HttpGet("popular-services")]
         public async Task<IActionResult> GetPopularServices()
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             return (await _rest.Profile.GetPopularServiceResponse(cookies)).Match(success => Ok(success.Result.Take(10)), Problem);
         }
@@ -48,7 +54,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         [HttpGet("overview")]
         public async Task<IActionResult> GetServiceOverview(string args)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             return (await _rest.Profile.GetServiceOverview(cookies)).Match(Ok, Problem);
         }
@@ -56,7 +64,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         [HttpGet("detail")]
         public async Task<IActionResult> GetServiceDetail(string args)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             return (await _rest.Profile.GetServiceDetails(cookies)).Match(Ok, Problem);
         }
@@ -64,7 +74,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         [HttpGet("active-services")]
         public async Task<IActionResult> GetActiveServices()
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Profile.GetActiveServiceResponse(cookies);
 

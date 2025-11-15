@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
-using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels.DMTModel.ElmsPayment;
 using Runtime.RestClient.Interfaces.Unit;
+using System.Security.Claims;
 
 namespace Runtime.API.Controllers.DMT.ElmsPayment
 {
@@ -25,7 +25,9 @@ namespace Runtime.API.Controllers.DMT.ElmsPayment
         [HttpPost("print-payment-slip")]
         public async Task<IActionResult> PrintPaymentSlip(string args, PrintPaymentSlipRequest model)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Payment.PrintPaymentSlip(cookies, args, model);
 
@@ -35,7 +37,9 @@ namespace Runtime.API.Controllers.DMT.ElmsPayment
         [HttpPost("override-payment")]
         public async Task<IActionResult> OverridePayment(string args, OverridePaymentRequest model)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Payment.OverridePayment(cookies, args, model);
 
@@ -45,7 +49,9 @@ namespace Runtime.API.Controllers.DMT.ElmsPayment
         [HttpPost("verify-payment")]
         public async Task<IActionResult> VerifyPayment(string args, VerifyPaymentRequest model)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Payment.VerifyPayment(cookies, args, model);
 

@@ -5,6 +5,6 @@ namespace Runtime.RestClient.Interfaces
 {
     public interface IPageInfoClient
     {
-        Task<ErrorOr<PageInfoResponse>> GetPage(string token, string slug);
+        Task<ErrorOr<PageInfoResponse>> GetPage(string slug);
     }
 }

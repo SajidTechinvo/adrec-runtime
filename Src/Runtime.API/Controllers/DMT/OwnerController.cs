@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
-using Runtime.Common.Helpers;
 using Runtime.Common.Lookups;
 using Runtime.DTO.ApiModels.DMTModel;
 using Runtime.RestClient.Interfaces.Unit;
+using System.Security.Claims;
 
 namespace Runtime.API.Controllers.DMT
 {
@@ -26,7 +26,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpPost("contact")]
         public async Task<IActionResult> EditContact(EditContactRequest model)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Owner.EditContact(cookies, model);
 
@@ -45,7 +47,9 @@ namespace Runtime.API.Controllers.DMT
         {
             string matchType = ((int)matchTypeId).ToString();
 
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Owner.GetOwners(cookies, args, requestId, ownerName, tribe, nationalNumber,
                                                      nationalityId, familyBookNumber, cityNumber, passPortNumber,
@@ -62,7 +66,9 @@ namespace Runtime.API.Controllers.DMT
         {
             string matchType = ((int)matchTypeId).ToString();
 
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Owner.GetCompanies(cookies, args, chamberOfCommerceNo, matchType, ownerName, pageNumber,
                                                                  pageSize, requestId, totalCount, tradeLicense);
@@ -73,7 +79,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("authorized")]
         public async Task<IActionResult> AuthorizedOwners(string args)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Owner.SearchAuthorizedOwners(cookies, args);
 
@@ -83,7 +91,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("plots")]
         public async Task<IActionResult> GetOwnerProfilePlots(string args)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Owner.OwnerPlots(cookies, args);
 
@@ -93,7 +103,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("plots-with-shares/{id}")]
         public async Task<IActionResult> GetOwnerProfilePlotsWithShares(string args, int id)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Owner.GetOwnerProfilePlotsWithShares(cookies, args, id);
 

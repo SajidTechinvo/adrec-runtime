@@ -6,15 +6,6 @@ using Runtime.RestClient.Interfaces;
 
 namespace Runtime.RestClient.Implementations
 {
-
-    internal class MockAmazonClient : IAmazonClient
-    {
-        public Task<string> ReadFileAsync(string fileName)
-        {
-            return File.ReadAllTextAsync(fileName);
-        }
-    }
-
     internal class AmazonClient(IOptions<AmazonClientOptions> options) : IAmazonClient
     {
         #region Private Fields

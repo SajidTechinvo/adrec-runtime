@@ -17,12 +17,11 @@ namespace Runtime.RestClient.Implementations
 
         #region Methods
 
-        public async Task<ErrorOr<PageInfoResponse>> GetPage(string token, string slug)
+        public async Task<ErrorOr<PageInfoResponse>> GetPage(string slug)
         {
             using var client = _client.CreateClient();
             try
             {
-                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
                 var response = await client.GetAsync($"{AppSettingHelper.GetServiceBuilderUrl()}/api/page_info/slug/{slug}");
                 if (response.IsSuccessStatusCode)
                 {

@@ -147,9 +147,9 @@ namespace Runtime.API.Controllers.Base
             return Ok(action(data));
         }
 
-        protected async Task<List<Cookie>> GetCookies(string token)
+        protected async Task<List<Cookie>> GetCookies(string email)
         {
-            return await _redis.GetCacheValueAsync<List<Cookie>>(token) ?? throw new NotFoundException("Cookies not found in cache.");
+            return await _redis.GetCacheValueAsync<List<Cookie>>(email) ?? throw new NotFoundException("Cookies not found in cache.");
         }
 
         #endregion Methods

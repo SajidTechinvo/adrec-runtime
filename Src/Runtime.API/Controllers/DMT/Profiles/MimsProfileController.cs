@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
-using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels.DMTModel.Profiles;
 using Runtime.RestClient.Interfaces.Unit;
 using System.Net;
+using System.Security.Claims;
 
 namespace Runtime.API.Controllers.DMT.Profiles
 {
@@ -28,9 +28,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         [HttpPost("switch")]
         public async Task<IActionResult> SwitchMimsProfile(SwitchProfileRequest model)
         {
-            var token = RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1];
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
 
-            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(token);
+            var cookies = await _redis.GetCacheValueAsync<List<Cookie>>(email);
 
             var result = await _rest.Profile.SwitchMimsProfile(cookies, model);
 
@@ -39,7 +39,7 @@ namespace Runtime.API.Controllers.DMT.Profiles
 
             var switchResponse = result.Value;
 
-            await _redis.SetCacheValueAsync(token, switchResponse.Cookies);
+            await _redis.SetCacheValueAsync(email, switchResponse.Cookies);
 
             return Ok(switchResponse.Response);
         }
@@ -51,7 +51,9 @@ namespace Runtime.API.Controllers.DMT.Profiles
         [HttpGet("")]
         public async Task<IActionResult> GetMimsProfile()
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Profile.GetMimsProfile(cookies);
 

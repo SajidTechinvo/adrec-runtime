@@ -20,7 +20,6 @@ using ADREC.RestClient.Implementations.DMT.Plots;
 using ADREC.RestClient.Implementations.DMT.Profiles;
 using ADREC.RestClient.Implementations.DMT.Users;
 using ADREC.RestClient.Implementations.DMT.Users.Inbox;
-using ADREC.RestClient.Interfaces;
 using ADREC.RestClient.Interfaces.DMT;
 using ADREC.RestClient.Interfaces.DMT.Common;
 using ADREC.RestClient.Interfaces.DMT.ElmsPayment;
