@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
-using Runtime.Common.Helpers;
 using Runtime.Common.Lookups;
 using Runtime.RestClient.Interfaces.Unit;
+using System.Security.Claims;
 
 namespace Runtime.API.Controllers.DMT.Plots
 {
@@ -25,7 +25,9 @@ namespace Runtime.API.Controllers.DMT.Plots
         [HttpGet("detail/{id}")]
         public async Task<IActionResult> GetPlotDetail(long id)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Plot.GetPlotDetails(cookies, id);
 
@@ -35,18 +37,21 @@ namespace Runtime.API.Controllers.DMT.Plots
         [HttpGet("owner/{id}")]
         public async Task<IActionResult> GetPlotOwner(long id)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Plot.GetPlotOwners(cookies, id);
 
             return result.Match(data => Ok(data.Result), Problem);
-
         }
 
         [HttpGet("profile")]
         public async Task<IActionResult> FetchPlotProfile(string args)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Plot.FetchPlotProfile(cookies, args);
 
@@ -56,7 +61,9 @@ namespace Runtime.API.Controllers.DMT.Plots
         [HttpGet("profile-services")]
         public async Task<IActionResult> FetchPlotProfileServices(string args)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Plot.FetchPlotProfileServices(cookies, args);
 
@@ -70,7 +77,9 @@ namespace Runtime.API.Controllers.DMT.Plots
             int pageSize, string searchPlotFlags, string searchOwnerFlags, string ownerId, int pageNumber,
             int totalCount)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Plot.SearchPlots(cookies, requestId, municipality, landuseId, zone,
                             publicHouseNo, sector, roadId, plotNumber, plotFileNumber, matchTypeId.ToString(), pageSize,
@@ -82,7 +91,9 @@ namespace Runtime.API.Controllers.DMT.Plots
         [HttpGet("tenancy-contract/{id}")]
         public async Task<IActionResult> FetchPlotByTenancyContractId(string args, long id)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Plot.FetchPlotByTenancyContractId(cookies, args, id);
 

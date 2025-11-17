@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
-using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels.DMTModel.ElmsTenancy;
 using Runtime.RestClient.Interfaces.Unit;
+using System.Security.Claims;
 
 namespace Runtime.API.Controllers.DMT
 {
@@ -25,7 +25,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpPost("calculate-rent-fees")]
         public async Task<IActionResult> CalculateRentFees(string args, CalculateRentFeesRequest model)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Tenancy.CalculateRentFees(cookies, args, model);
 
@@ -39,7 +41,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("late-rent-payment/{id}")]
         public async Task<IActionResult> LateRentPayments(string args, int id)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Tenancy.FetchLandLateRentPayments(cookies, args, id);
 
@@ -49,7 +53,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("contracts-list/{plotId}")]
         public async Task<IActionResult> FetchTenancyContractList(string args, int plotId, bool showAll, int tenancyContractCategory)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Tenancy.FetchTenancyContractList(cookies, args, plotId, showAll, tenancyContractCategory);
 
@@ -59,7 +65,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("contracts-detail/{id}")]
         public async Task<IActionResult> FetchTenancyContractDetails(string args, int id)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Tenancy.FetchTenancyContractDetails(cookies, args, id);
 
@@ -71,7 +79,9 @@ namespace Runtime.API.Controllers.DMT
                                                                 string matchTypeId, int pageNumber, int pageSize,
                                                                 string startDate)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.Tenancy.SearchTenancyContracts(cookies, args, contractNumber, contractType,
                                                                     matchTypeId, pageNumber, pageSize, startDate);

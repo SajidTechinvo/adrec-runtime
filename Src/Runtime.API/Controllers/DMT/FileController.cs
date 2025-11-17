@@ -4,6 +4,7 @@ using Runtime.API.Controllers.Base;
 using Runtime.Common.Helpers;
 using Runtime.DTO.ApiModels.DMTModel;
 using Runtime.RestClient.Interfaces.Unit;
+using System.Security.Claims;
 
 namespace Runtime.API.Controllers.DMT
 {
@@ -25,7 +26,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpPost("upload")]
         public async Task<IActionResult> Upload(string args, UploadFileRequest model)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.File.UploadFileAsync(cookies, Convert.FromBase64String(model.File.FileContent), model.Name, model.File.FileName, args);
 
@@ -35,7 +38,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpGet("download")]
         public async Task<IActionResult> Download(string args)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.File.DownloadFileAsync(cookies, args);
 
@@ -45,7 +50,9 @@ namespace Runtime.API.Controllers.DMT
         [HttpPost("delete")]
         public async Task<IActionResult> Delete(string args)
         {
-            var cookies = await GetCookies(RequestHelper.GetAuthorizationToken(HttpContext.Request).Split(" ")[1]);
+            var email = User.Claims.First(f => f.Type.Equals(ClaimTypes.Email)).Value;
+
+            var cookies = await GetCookies(email);
 
             var result = await _rest.File.DeleteFileAsync(cookies, args);
 

@@ -51,12 +51,11 @@ namespace Runtime.RestClient.Implementations
 
         #region Methods
 
-        public async Task<ErrorOr<TableResponse>> GetTable(string token, long id)
+        public async Task<ErrorOr<TableResponse>> GetTable(long id)
         {
             using var client = _client.CreateClient();
             try
             {
-                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
                 var response = await client.GetAsync($"{AppSettingHelper.GetServiceBuilderUrl()}/api/data-store/{id}");
 
                 if (response.IsSuccessStatusCode)
@@ -65,7 +64,7 @@ namespace Runtime.RestClient.Implementations
                 }
                 else
                 {
-                    throw new GeneralException("An Error occurred while getting data.");
+                    throw new GeneralException($"An Error occurred while getting data {response.ReasonPhrase}.");
                 }
             }
             catch (Exception ex)

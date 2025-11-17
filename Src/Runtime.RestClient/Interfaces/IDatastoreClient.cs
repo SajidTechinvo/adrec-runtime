@@ -5,6 +5,6 @@ namespace Runtime.RestClient.Interfaces
 {
     public interface IDatastoreClient
     {
-        Task<ErrorOr<TableResponse>> GetTable(string token, long id);
+        Task<ErrorOr<TableResponse>> GetTable(long id);
     }
 }
