@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Runtime.API.Caching;
 using Runtime.API.Controllers.Base;
 using Runtime.Common.Errors.Exceptions;
 using Runtime.Common.JWT;
+using Runtime.Common.Settings;
 using Runtime.DTO.ApiModels.Common;
 using Runtime.RestClient.Interfaces.Unit;
 using System.Security.Claims;
@@ -12,11 +14,12 @@ namespace Runtime.API.Controllers.DMT
 {
     [Route("dmt")]
     public class DmtAuthController(IRedisCacheService redis, IJwtTokenGenerator jwt,
-                                     ILogger logger, IRestClientUnit rest) : ApiController(redis, logger)
+                                     ILogger logger, IRestClientUnit rest, IOptions<UaePassSettings> options) : ApiController(redis, logger)
     {
         #region Private Fields
 
         private readonly IRestClientUnit _rest = rest;
+        private readonly UaePassSettings _settings = options.Value;
         private readonly IRedisCacheService _redis = redis;
         private readonly IJwtTokenGenerator _jwt = jwt;
 
@@ -45,8 +48,8 @@ namespace Runtime.API.Controllers.DMT
                 Response.Cookies.Append("token", token, new CookieOptions
                 {
                     HttpOnly = true,
-                    Secure = true,
-                    SameSite = SameSiteMode.None,
+                    Secure = false,
+                    SameSite = SameSiteMode.Lax,
                     Expires = DateTime.UtcNow.AddMinutes(30)
                 });
 
@@ -72,14 +75,13 @@ namespace Runtime.API.Controllers.DMT
             Response.Cookies.Append("token", token, new CookieOptions
             {
                 HttpOnly = true,
-                Secure = true,
-                SameSite = SameSiteMode.None,
+                Secure = false,
+                SameSite = SameSiteMode.Lax,
                 Expires = DateTime.UtcNow.AddMinutes(30)
             });
 
             return Ok();
         }
-
 
         [HttpPost("logout")]
         [ProducesResponseType(200, Type = typeof(object))]
@@ -95,13 +97,33 @@ namespace Runtime.API.Controllers.DMT
             return Ok(new LogoutResponse() { Message = "Logged out successfully" });
         }
 
-
+        [AllowAnonymous]
         [HttpPost("sso-login")]
         [ProducesResponseType(200, Type = typeof(object))]
-        public IActionResult SSOLogin(SSOLoginRequest model)
+        public async Task<IActionResult> SSOLogin(SsoLoginRequest model)
         {
+            var uaePassUser = await _rest.Auth.GetUAEPassUserInfo(model.Code, model.State);
+            if (uaePassUser.IsError) return Problem(uaePassUser.Errors);
 
-            return Ok();
+            var dmtSsoLoginRequest = new DmtSsoLoginRequest
+            {
+                Email = uaePassUser.Value.Email,
+                Uuid = uaePassUser.Value.Uuid,
+                CustomerNameA = uaePassUser.Value.FirstnameEN,
+                CustomerNameE = uaePassUser.Value.FirstnameEN,
+                NationalNumber = "784199268747468",
+                Mobile = uaePassUser.Value.Mobile,
+                UserType = uaePassUser.Value.UserType,
+                DeviceId = _settings.DeviceId,
+                DeviceLang = _settings.DeviceLang,
+                SourceSystem = _settings.SourceSystem,
+                SourceSystemValue = _settings.SourceSystemValue
+            };
+
+            var ssoLoginResponse = await _rest.Auth.DmtSsoLogin(dmtSsoLoginRequest);
+            if (ssoLoginResponse.IsError) return Problem(ssoLoginResponse.Errors);
+
+            return Ok(ssoLoginResponse.Value);
         }
 
         #endregion POST

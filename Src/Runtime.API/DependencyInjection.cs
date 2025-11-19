@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using Runtime.API.Caching;
 using Runtime.Common;
 using Runtime.Common.Helpers;
+using Runtime.Common.Settings;
 using Runtime.RestClient;
 using StackExchange.Redis;
 
@@ -46,6 +47,7 @@ namespace Runtime.API
             services.AddRestClientServices(configuration);
             services.AddCommon(configuration);
 
+            services.Configure<UaePassSettings>(configuration.GetSection(UaePassSettings.SectionName));
 
             services.AddResponseCompression(option =>
             {
