@@ -21,7 +21,8 @@ namespace Runtime.RestClient.Implementations
             var config = new AmazonS3Config
             {
                 ServiceURL = _options.ServiceURL,
-                ForcePathStyle = true
+                ForcePathStyle = true,
+                UseHttp = false
             };
 
             var client = new AmazonS3Client(
