@@ -1,4 +1,6 @@
-﻿namespace Runtime.DTO.ApiModels
+﻿using System.Text.Json.Serialization;
+
+namespace Runtime.DTO.ApiModels
 {
     #region Response
 
@@ -14,6 +16,24 @@
         public string DescriptionAr { get; set; }
         public bool IsActive { get; set; }
         public string Json { get; set; }
+    }
+
+    public class ServiceJsonModel
+    {
+        [JsonPropertyName("moduleState")]
+        public object ModuleState { get; set; }
+        [JsonPropertyName("pages")]
+        public object Pages { get; set; }
+        [JsonPropertyName("columns")]
+        public object Columns { get; set; }
+        [JsonPropertyName("rows")]
+        public object Rows { get; set; }
+        [JsonPropertyName("components")]
+        public object Components { get; set; }
+        [JsonPropertyName("sections")]
+        public object Sections { get; set; }
+        [JsonPropertyName("dialogs")]
+        public object Dialogs { get; set; }
     }
 
     #endregion Response

@@ -9,6 +9,7 @@ using Runtime.Common.Settings;
 using Runtime.DTO.ApiModels.Common;
 using Runtime.RestClient.Interfaces.Unit;
 using System.Security.Claims;
+using System.Text.Json;
 
 namespace Runtime.API.Controllers.DMT
 {
@@ -50,7 +51,7 @@ namespace Runtime.API.Controllers.DMT
                     HttpOnly = true,
                     Secure = true,
                     SameSite = SameSiteMode.None,
-                    Expires = DateTime.UtcNow.AddMinutes(30)
+                    Expires = DateTime.UtcNow.AddDays(1)
                 });
 
                 return Ok();
@@ -104,6 +105,8 @@ namespace Runtime.API.Controllers.DMT
         {
             var uaePassUser = await _rest.Auth.GetUAEPassUserInfo(model.Code, model.State);
             if (uaePassUser.IsError) return Problem(uaePassUser.Errors);
+
+            Console.WriteLine(JsonSerializer.Serialize(uaePassUser.Value));
 
             var dmtSsoLoginRequest = new DmtSsoLoginRequest
             {

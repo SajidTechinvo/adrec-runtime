@@ -54,6 +54,7 @@ namespace Runtime.RestClient.Implementations
 
             if (response.IsSuccessStatusCode)
             {
+                Console.WriteLine(response.Content.ReadAsStringAsync());
                 return await response.Content.ReadFromJsonAsync<UaePassUserInfoResponse>();
             }
             else
